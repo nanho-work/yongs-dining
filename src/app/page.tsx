@@ -7,7 +7,6 @@ export default function Home() {
     <section className="bg-white">
       {/* Hero */}
       <Hero />
-
       {/* 소개 섹션 */}
       <div className="max-w-5xl mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold text-center mb-6">왜 용스다이닝포차인가요?</h2>
