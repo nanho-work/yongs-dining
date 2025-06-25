@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
+const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : '';
+
 export default function Header() {
   return (
     <header className="w-full bg-white/0 fixed top-0 left-0 z-50">
@@ -10,7 +12,7 @@ export default function Header() {
         {/* 로고 이미지 */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/logo.png" // public/logo.png 파일이 있어야 합니다
+            src={`${prefix}/logo.png`} // public/logo.png 파일이 있어야 합니다
             alt="용스다이닝포차 로고"
             width={160}
             height={48}

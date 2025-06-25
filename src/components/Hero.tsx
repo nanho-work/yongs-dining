@@ -3,7 +3,15 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-const images = ['/home1.png', '/home2.png', '/home3.png', '/home4.png', '/home5.png']
+const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : '';
+
+const images = [
+  `${prefix}/home1.png`,
+  `${prefix}/home2.png`,
+  `${prefix}/home3.png`,
+  `${prefix}/home4.png`,
+  `${prefix}/home5.png`
+];
 const directions = ['translate-x-full', '-translate-x-full', 'translate-y-full', '-translate-y-full', 'scale-125']
 
 export default function Hero() {
