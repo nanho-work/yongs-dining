@@ -2,7 +2,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: '용스다이닝포차 | 분위기 좋은 감성포차',
@@ -37,7 +36,6 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-grow pt-16">{children}</main>
-        <Footer />
       </body>
     </html>
   )

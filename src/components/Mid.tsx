@@ -5,11 +5,13 @@ import Image from 'next/image';
 const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : '';
 
 const imageData = [
-  { src: `${prefix}/목살갈비샐러드.jpeg`, alt: '목살갈비샐러드' },
+  { src: `${prefix}/목살갈비샐러드1.jpeg`, alt: '목살갈비샐러드' },
   { src: `${prefix}/수제수육보쌈.jpeg`, alt: '수제수육보쌈' },
-  { src: `${prefix}/얼큰두부짜글이.jpeg`, alt: '얼큰두부짜글이' },
-  { src: `${prefix}/폭탄두부두르치기.jpeg`, alt: '폭탄두부두르치기' },
-  { src: `${prefix}/한우두부전골.jpeg`, alt: '한우두부전골' },
+  { src: `${prefix}/얼큰두부짜글이1.jpeg`, alt: '얼큰두부짜글이' },
+  { src: `${prefix}/폭탄두부두루치기.jpeg`, alt: '폭탄두부두르치기' },
+  { src: `${prefix}/리얼한우두부전골1.jpeg`, alt: '한우두부전골' },
+  { src: `${prefix}/홍콩눈꽃교자.jpeg`, alt: '홍콩눈꽃교자' },
+  { src: `${prefix}/대포항오징어누룽지순대1.jpeg`, alt: '대포항오징어누룽지순대' },
 ];
 
 const MidSection = () => {

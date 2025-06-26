@@ -7,7 +7,7 @@ const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : '';
 
 export default function Header() {
   return (
-    <header className="w-full bg-white/0 fixed top-0 left-0 z-50">
+    <header className="w-full bg-white absolute top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* 로고 이미지 */}
         <Link href="/" className="flex items-center">
@@ -21,10 +21,9 @@ export default function Header() {
         </Link>
 
         {/* 네비게이션 메뉴 */}
-        <nav className="flex gap-6 text-lg font-medium text-white">
-          <Link href="#" className="hover:text-red-500">메뉴</Link>
-          <Link href="#" className="hover:text-red-500">브랜드 소개</Link>
-          <Link href="#" className="hover:text-red-500">위치</Link>
+        <nav className="flex gap-6 text-lg font-bold text-red-400">
+          <Link href={`${prefix}/menu`} className="hover:text-red-500">메뉴</Link>
+          <Link href={`${prefix}/location`} className="hover:text-red-500">매장안내</Link>
         </nav>
       </div>
     </header>
