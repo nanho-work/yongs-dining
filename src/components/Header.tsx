@@ -8,7 +8,7 @@ const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : '';
 export default function Header() {
   return (
     <header className="w-full bg-white absolute top-0 left-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* 로고 이미지 */}
         <Link href="/" className="flex items-center">
           <Image
