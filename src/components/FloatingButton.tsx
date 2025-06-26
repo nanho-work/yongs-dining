@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { FaInstagram, FaArrowUp } from 'react-icons/fa';
-import { RiInstagramFill } from 'react-icons/ri';
+
+const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : ''
 
 const FloatingButton = () => {
     const handleScrollTop = () => {
@@ -18,7 +18,7 @@ const FloatingButton = () => {
                 rel="noopener noreferrer"
             >
                 <img
-                    src="/social.png"
+                    src={`${prefix}/social.png`}
                     alt="Instagram"
                     className="w-12 h-12 md:w-14 md:h-14"
                 />
