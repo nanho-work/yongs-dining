@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { FaInstagram, FaArrowUp } from 'react-icons/fa';
+import { RiInstagramFill } from 'react-icons/ri';
 
 const FloatingButton = () => {
     const handleScrollTop = () => {
@@ -15,17 +16,20 @@ const FloatingButton = () => {
                 href="https://www.instagram.com/yongs_dining_official/?igsh=NW9vdjV2ODVqdDAw#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-pink-500 text-white p-3 md:p-4 rounded-full shadow-lg hover:scale-110 transition-transform"
             >
-                <FaInstagram size={20} className="md:size-[24px]" />
+                <img
+                    src="/social.png"
+                    alt="Instagram"
+                    className="w-12 h-12 md:w-14 md:h-14"
+                />
             </a>
             <button
-  onClick={handleScrollTop}
-  className="bg-gray-700 text-white px-3 py-2 md:px-4 md:py-2 rounded-full shadow-lg hover:scale-110 transition-transform text-xs md:text-sm font-semibold flex flex-col items-center leading-tight"
->
-  <span className="text-base md:text-lg">⬆︎</span>
-  <span>top</span>
-</button>
+                onClick={handleScrollTop}
+                className="bg-gray-700 text-white px-3 py-2 md:px-4 md:py-2 rounded-full shadow-lg hover:scale-110 transition-transform text-xs md:text-sm font-semibold flex flex-col items-center leading-tight"
+            >
+                <span className="text-base md:text-lg">⬆︎</span>
+                <span>top</span>
+            </button>
         </div>
     );
 };
