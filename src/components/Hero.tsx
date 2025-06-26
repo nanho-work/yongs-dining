@@ -12,7 +12,6 @@ const images = [
   `${prefix}/home4.png`,
   `${prefix}/home5.png`
 ];
-const directions = ['translate-x-full', '-translate-x-full', 'translate-y-full', '-translate-y-full', 'scale-125']
 
 export default function Hero() {
   const [index, setIndex] = useState(0)
@@ -33,10 +32,8 @@ export default function Hero() {
           src={src}
           alt={`배경 ${i + 1}`}
           fill
-          className={`object-cover absolute inset-0 transition-all duration-1000 ease-in-out ${
-            i === index
-              ? 'opacity-100 z-20 translate-x-0 scale-100'
-              : `opacity-0 z-10 ${directions[i % directions.length]}`
+          className={`object-cover absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            i === index ? 'opacity-100 z-20' : 'opacity-0 z-10'
           }`}
           priority={i === 0}
         />
