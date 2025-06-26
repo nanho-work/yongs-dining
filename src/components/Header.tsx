@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : '';
 
 export default function Header() {
   return (
