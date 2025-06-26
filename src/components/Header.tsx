@@ -22,8 +22,8 @@ export default function Header() {
 
         {/* 네비게이션 메뉴 */}
         <nav className="flex gap-6 text-lg font-bold text-red-400">
-          <Link href={`${prefix}/menu`} className="hover:text-red-500">메뉴</Link>
-          <Link href={`${prefix}/location`} className="hover:text-red-500">매장안내</Link>
+          <Link href={`/menu`} className="hover:text-red-500">메뉴</Link>
+          <Link href={`/location`} className="hover:text-red-500">매장안내</Link>
         </nav>
       </div>
     </header>
