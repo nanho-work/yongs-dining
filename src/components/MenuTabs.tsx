@@ -21,14 +21,14 @@ const tabs: Tab[] = [
 
 export default function MenuTabs({ selected, onSelect }: Props) {
     return (
-        <div className="relative border-b border-black w-full overflow-x-auto">
+        <div className="relative border-b border-black w-full overflow-x-auto overflow-y-hidden sm:overflow-x-visible">
             <div className="flex justify-start sm:justify-center whitespace-nowrap px-2 sm:px-0">
                 {tabs.map((tab) => (
                     <button
                         key={tab.id}
                         onClick={() => onSelect(tab.id)}
-                        className={`mx-1 sm:mx-2 px-4 sm:px-6 py-2 text-sm sm:text-base font-bold border border-black border-b-0 -mb-px transition
-        ${selected === tab.id
+                        className={`mx-1 sm:mx-2 px-4 sm:px-6 py-3 text-sm sm:text-base font-bold border border-black border-b-0 -mb-px transition
+                    ${selected === tab.id
                                 ? 'bg-white text-black'
                                 : 'bg-transparent text-black opacity-70 hover:opacity-100'}`}
                         style={{
