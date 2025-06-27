@@ -8,7 +8,7 @@ export default function MenuPage() {
   const [selected, setSelected] = useState('all');
 
   return (
-    <main className="max-w-6xl mx-auto px-4 py-20">
+    <main className="max-w-7xl mx-auto px-4 py-20">
       <Menu />
     </main>
   );

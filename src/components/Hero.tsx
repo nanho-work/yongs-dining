@@ -30,7 +30,7 @@ export default function Hero() {
   ]
 
   return (
-    <div className="relative max-w-6xl h-[900px] overflow-hidden mx-auto flex">
+    <div className="relative max-w-7xl h-[800px] overflow-hidden mx-auto flex">
       
       {visibleImages.map((src, i) => (
         <div key={src} className="relative w-1/2 h-full">

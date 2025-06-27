@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import MenuTabs from './MenuTabs';
@@ -10,7 +12,7 @@ export default function Menu() {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const filteredMenus = selectedCategory === 'all'
-    ? menus.filter((menu) => menu.category !== 'drink') // 드링크는 전체에서 제외
+    ? menus.filter((menu) => menu.category !== 'drink')
     : menus.filter((menu) => menu.category === selectedCategory);
 
   useEffect(() => {
@@ -25,7 +27,7 @@ export default function Menu() {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
+    <div className="max-w-8xl mx-auto px-4 py-10">
       <div className="text-m text-gray-800 bg-blue-50 border-l-4 border-blue-400 p-3 rounded mb-6">
         <p>
           전메뉴 <span className="font-semibold">수제 양념장</span>으로<br />
@@ -34,64 +36,57 @@ export default function Menu() {
         </p>
       </div>
 
-      {/* ✅ 탭바 */}
       <MenuTabs selected={selectedCategory} onSelect={setSelectedCategory} />
-      {selectedCategory === 'side' && (
-        <div className="text-sm text-gray-700 bg-yellow-100 border-l-4 border-yellow-500 p-3 rounded mb-4">
-          <ul className="list-disc list-inside leading-relaxed">
-            <li><span className="font-bold text-black">사이드메뉴는 본메뉴 주문시 가능</span></li>
-            <li><span className="font-bold text-black">수입맥주, 크래프트비어, 하이볼, 프리미엄 막걸리 주문시 가능</span></li>
-            <li><span className="font-bold text-black">평일 두가지 메뉴 이상 주문시 가능</span></li>
-          </ul>
-        </div>
-      )}
 
-      {/* ✅ 드링크는 별도 렌더링 */}
       {selectedCategory === 'drink' ? (
         <div className="mt-8">
           <DrinkMenu />
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 mt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
           {filteredMenus.map((menu, index) => {
-            const images = Array.isArray(menu.image) ? menu.image : [menu.image];
-            const currentImage = images[activeIndex % images.length];
+            const images = Array.isArray(menu.image) ? menu.image : (menu.image ? [menu.image] : []);
+            const currentImage = images.length > 0 ? images[activeIndex % images.length] : 'coming-soon.png';
 
             return (
               <div
-                key={index}
-                className="flex flex-col items-center text-center bg-white font-nanum-myeongjo"
+                key={`${menu.title}-${index}`} // ✅ 고유 key 지정
+                className="relative w-full h-[500px] group overflow-visible"
               >
-                <div className="relative w-[300px] h-[240px] overflow-hidden rounded-lg">
-                  {/* ✅ 뱃지 */}
-                  {menu.badge && (
-                    <div className="absolute top-3 right-[-30px] bg-red-500 text-white text-xs font-bold px-10 py-1 rotate-45 shadow-md z-30 animate-blink">
-                      {menu.badge}
-                    </div>
-                  )}
-
-                  {images.map((src, i) => (
-                    <Image
-                      key={src}
-                      src={`${prefix}/${src}`}
-                      alt={`${menu.title}-${i}`}
-                      fill
-                      className={`object-cover absolute inset-0 transition-opacity duration-1000 ease-in-out ${i === activeIndex % images.length ? 'opacity-100 z-20' : 'opacity-0 z-10'}`}
-                    />
-                  ))}
-                </div>
-
-                <h3 className="text-base mt-4 font-bold">{menu.title}</h3>
-                <p
-                  className="text-sm text-gray-700 mt-2"
-                  dangerouslySetInnerHTML={{ __html: menu.description }}
-                />
-
-                {menu.limited && (
-                  <p className="text-xs text-gray-400 mt-1">※ 예약 및 한정판매 메뉴입니다</p>
+                {/* ✅ 이미지 */}
+                {images.length > 0 && (
+                  <Image
+                    src={`${prefix}/${currentImage}`}
+                    alt={menu.title}
+                    fill
+                    className="object-cover w-full h-full transform group-hover:scale-105 transition duration-500"
+                  />
                 )}
 
-                <p className="text-black font-semibold mt-2">{menu.price}</p>
+                {/* ✅ 그라데이션 오버레이 + 텍스트 통합 */}
+                <div className="absolute inset-0 w-1/3 z-20 bg-gradient-to-r from-gray-800 to-gray-600/30 flex flex-col justify-start p-4 text-white">
+
+                  <h3 className="text-lg font-bold">{menu.title}</h3>
+                  <p
+                    className="text-sm mt-1"
+                    dangerouslySetInnerHTML={{ __html: menu.description }}
+                  />
+                  {menu.limited && (
+                    <p className="text-xs text-gray-300 mt-1">※ 예약 및 한정판매 메뉴입니다</p>
+                  )}
+                  <p className="text-base font-semibold text-white mt-2">{menu.price}</p>
+                </div>
+
+
+                {/* ✅ 뱃지 - 이미지 중간에서 텍스트 위에 걸치는 느낌 */}
+                {menu.badge && (
+                  <span className="absolute z-30 top-[-12px] left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 shadow-md pointer-events-none">
+                    {menu.badge}
+                  </span>
+                )}
+
+
+
               </div>
             );
           })}
@@ -115,22 +110,22 @@ const menus = [
     title: '해장 두부전골',
     description: '황태,알배기,민물새우,꽃게 해장이 되는 <span style="color: #dc2626; font-weight: bold;">칼칼하고 시원한 맛!</span>',
     price: '28,000원 / 혼술 15,000원',
-    image: ['해장두부전골1.jpeg', '해장두부전골2.jpeg'],
+    image: ['해장두부전골.png'],
     category: 'main-tofu',
   },
   {
     title: '수제 두부보쌈',
     description: '<span style="color: #dc2626; font-weight: bold;">직접 삶은 오삼겹</span>, 수제짱아치, 무생채에 곁들여 먹는 메뉴, <span style="color: #dc2626; font-weight: bold;">반주할ㄷ때 딱!</span>',
     price: '30,000원',
-    image: 'coming-soon.png',
+    image: '수제수육보쌈.jpeg',
     limited: true,
     category: 'main-tofu',
   },
   {
     title: '300g 폭탄 두부두루치기',
     description: '들기름으로 구운 두부, 우삼겹, 법과 술을 부르는 메뉴, <span style="color: #dc2626; font-weight: bold;">중독적인 맛!</span>',
-    price: '28,000원 / 혼술 15,000원',
-    image: '폭탄두부두루치기.jpeg',
+    price: '28,000원 /   혼술 15,000원',
+    image: '폭탄두부두루치기.png',
     badge: 'BEST',
     category: 'main-tofu',
   },
@@ -138,7 +133,7 @@ const menus = [
     title: '얼큰두부짜글이',
     description: '모두부, 스팸, 물만두, 감자를 짜글짜글 지져내어 <span style="color: #dc2626; font-weight: bold;">칼칼한 맛!</span>',
     price: '25,000원 / 혼술 15,000원',
-    image: ['얼큰두부짜글이1.jpeg', '얼큰두부짜글이2.jpeg'],
+    image: ['얼큰두부짜글이.png'],
     badge: 'HIT',
     category: 'main-tofu',
   },
@@ -146,14 +141,14 @@ const menus = [
     title: '두부 스팸 프라이',
     description: '들기름 두부구이, 계란반숙, 스팸튀김의 <span style="color: #dc2626; font-weight: bold;">다양하게 먹는 삼합!</span>',
     price: '20,000원',
-    image: '두부스팸프라이.jpeg',
+    image: '두부스팸프라이.png',
     category: 'main-tofu',
   },
   {
     title: '수제 두부김치',
     description: '<span style="color: #dc2626; font-weight: bold;">두툼한 수제 모두부</span>, 우삼겹과 신김치를 볶아 곁들여 먹는 메뉴',
     price: '18,000원',
-    image: ['통두부김치1.jpeg', '통두부김치2.jpeg'],
+    image: ['통두부김치.png'],
     category: 'main-tofu',
   },
   // 그외 메인 요리 -----------------------------------------------------------------------------
@@ -198,7 +193,7 @@ const menus = [
     title: '강원도빠삭먹태구이',
     description: '애주가라면 무조건 필수안주! 고성먹태를 빼삭하게 구워 용스의 매콤특제소스에...',
     price: '16,000원',
-    image: ['강원도빠삭먹태구이1.jpeg', '강원도빠삭먹태구이2.jpeg'],
+    image: ['강원도빠삭먹태구이.jpeg'],
     category: 'main-etc',
   },
 
@@ -208,10 +203,10 @@ const menus = [
     title: '꿀호떡 아이스크림',
     description: '호떡 바닐라아이스크림,시나몬파우더를 뿌려 달콤한맛!!(2 piece)',
     price: '9,000원',
-    image: ['호떡아이스크림1.jpeg', '호떡아이스크림2.jpeg'],
+    image: ['호떡아이스크림2.jpeg'],
     badge: 'BEST',
     category: 'side',
-  }, 
+  },
   {
     title: '맨하탄카나페',
     description: '크래커위에 크림치즈, 냉동블루베리, 꿀을 얹어 고소하고 상큼한맛',
@@ -223,10 +218,10 @@ const menus = [
     title: '해장묵사발',
     description: '수제도토리묵에 살얼음 동동 육수',
     price: '9,000원',
-    image: ['해장묵사발1.jpeg', '해장묵사발2.jpeg'],
+    image: ['해장묵사발.jpeg'],
     category: 'side',
   },
-  
+
   {
     title: '들기름두부구이',
     description: '두부매니아라면 들기름에 구운 꼬수운 두부',
