@@ -100,22 +100,22 @@ const menus = [
   // 메인 두부 요리 
   {
     title: '리얼 한우두부전골',
-    description: '<strong>“최고의요리비결”</strong> 김인숙 셰프와 용스 콜라보 메뉴!<br/>직접 삶은 한우, 고소한 순두부, 모두부, 민물새우, 꽃게, <span class="text-red-600 font-bold">진하고 얼큰한맛!</span>',
+    description: '<strong>“최고의요리비결”</strong> 김인숙 셰프와 용스 콜라보 메뉴!<br/>직접 삶은 한우, 고소한 순두부, 모두부, 민물새우, 꽃게, <span style="color: #ef4444; font-weight: bold;">진하고 얼큰한맛!</span>',
     price: '28,000원 / 혼술 15,000원',
-    image: ['리얼한우두부전골1.jpeg', '리얼한우두부전골2.jpeg'], // 중복 주의; 같은 이미지 두개 가능
+    image: ['리얼한우두부전골.png'], // 중복 주의; 같은 이미지 두개 가능
     badge: ' Signature',
     category: 'main-tofu',
   },
   {
     title: '해장 두부전골',
-    description: '황태,알배기,민물새우,꽃게 해장이 되는 <span style="color: #dc2626; font-weight: bold;">칼칼하고 시원한 맛!</span>',
+    description: '황태,알배기,민물새우,꽃게 해장이 되는 <span style="color: #ef4444; font-weight: bold;">칼칼하고 시원한 맛!</span>',
     price: '28,000원 / 혼술 15,000원',
     image: ['해장두부전골.png'],
     category: 'main-tofu',
   },
   {
     title: '수제 두부보쌈',
-    description: '<span style="color: #dc2626; font-weight: bold;">직접 삶은 오삼겹</span>, 수제짱아치, 무생채에 곁들여 먹는 메뉴, <span style="color: #dc2626; font-weight: bold;">반주할ㄷ때 딱!</span>',
+    description: '<span style="color: #ef4444; font-weight: bold;">직접 삶은 오삼겹</span>, 수제짱아치, 무생채에 곁들여 먹는 메뉴, <span style="color: #ef4444; font-weight: bold;">반주할때 딱!</span>',
     price: '30,000원',
     image: '수제수육보쌈.jpeg',
     limited: true,
@@ -123,7 +123,7 @@ const menus = [
   },
   {
     title: '300g 폭탄 두부두루치기',
-    description: '들기름으로 구운 두부, 우삼겹, 법과 술을 부르는 메뉴, <span style="color: #dc2626; font-weight: bold;">중독적인 맛!</span>',
+    description: '들기름으로 구운 두부, 우삼겹, 법과 술을 부르는 메뉴, <span style="color: #ef4444; font-weight: bold;">중독적인 맛!</span>',
     price: '28,000원 /   혼술 15,000원',
     image: '폭탄두부두루치기.png',
     badge: 'BEST',
@@ -131,7 +131,7 @@ const menus = [
   },
   {
     title: '얼큰두부짜글이',
-    description: '모두부, 스팸, 물만두, 감자를 짜글짜글 지져내어 <span style="color: #dc2626; font-weight: bold;">칼칼한 맛!</span>',
+    description: '모두부, 스팸, 물만두, 감자를 짜글짜글 지져내어 <span style="color: #ef4444; font-weight: bold;">칼칼한 맛!</span>',
     price: '25,000원 / 혼술 15,000원',
     image: ['얼큰두부짜글이.png'],
     badge: 'HIT',
@@ -139,14 +139,14 @@ const menus = [
   },
   {
     title: '두부 스팸 프라이',
-    description: '들기름 두부구이, 계란반숙, 스팸튀김의 <span style="color: #dc2626; font-weight: bold;">다양하게 먹는 삼합!</span>',
+    description: '들기름 두부구이, 계란반숙, 스팸튀김의 <span style="color: #ef4444; font-weight: bold;">다양하게 먹는 삼합!</span>',
     price: '20,000원',
     image: '두부스팸프라이.png',
     category: 'main-tofu',
   },
   {
     title: '수제 두부김치',
-    description: '<span style="color: #dc2626; font-weight: bold;">두툼한 수제 모두부</span>, 우삼겹과 신김치를 볶아 곁들여 먹는 메뉴',
+    description: '<span style="color: #ef4444; font-weight: bold;">두툼한 수제 모두부</span>, 우삼겹과 신김치를 볶아 곁들여 먹는 메뉴',
     price: '18,000원',
     image: ['통두부김치.png'],
     category: 'main-tofu',
@@ -154,29 +154,21 @@ const menus = [
   // 그외 메인 요리 -----------------------------------------------------------------------------
   {
     title: '부산 어묵탕',
-    description: '다양한 어묵, 우동, 물떡, 꽃게를 넣어 <span style="color: #dc2626; font-weight: bold;">칼칼하고 시원한맛!</span>',
+    description: '다양한 어묵, 우동, 물떡, 꽃게를 넣어 <span style="color: #ef4444; font-weight: bold;">칼칼하고 시원한맛!</span>',
     price: '23,000원 / 혼술 15,000원',
-    image: ['통두부어묵탕1.jpeg', '통두부어묵탕2.jpeg'],
+    image: ['통두부어묵탕.png'],
     category: 'main-etc',
   },
   {
     title: '목살 갈비 샐러드(270g)',
-    description: '"최고의요리비결" <span style="color: #dc2626; font-weight: bold;">신효섭셰프의 특제소스에</span> 불향, 새콤달콤 참나물 무침',
+    description: '"최고의요리비결" <span style="color: #ef4444; font-weight: bold;">신효섭셰프의 특제소스에</span> 불향, 새콤달콤 참나물 무침',
     price: '20,000원',
-    image: ['목살갈비샐러드1.jpeg', '목살갈비샐러드2.jpeg'],
-    category: 'main-etc',
-  },
-  {
-    title: '목살갈비샐러드',
-    description: '목살 380g+또띠아+소스',
-    price: '20,000원',
-    image: ['목살갈비샐러드1.jpeg', '목살갈비샐러드2.jpeg'],
-    badge: 'BEST',
+    image: ['목살갈비샐러드2.jpeg'],
     category: 'main-etc',
   },
   {
     title: '홍콩눈꽃교자',
-    description: '비비고 교자만두의 <span style="color: #dc2626; font-weight: bold;">겉바속촉촉, 그라다 파다뇨 치즈의 풍미</span> ',
+    description: '비비고 교자만두의 <span style="color: #ef4444; font-weight: bold;">겉바속촉촉, 그라다 파다뇨 치즈의 풍미</span> ',
     price: '15,000원',
     image: '홍콩눈꽃교자.jpeg',
     badge: 'HIT',
@@ -211,7 +203,7 @@ const menus = [
     title: '맨하탄카나페',
     description: '크래커위에 크림치즈, 냉동블루베리, 꿀을 얹어 고소하고 상큼한맛',
     price: '10,000원',
-    image: ['맨하탄카나페1.jpeg', '맨하탄카나페2.jpeg'],
+    image: ['맨하탄카나페.png'],
     category: 'side',
   },
   {
@@ -226,7 +218,9 @@ const menus = [
     title: '들기름두부구이',
     description: '두부매니아라면 들기름에 구운 꼬수운 두부',
     price: '8,000원',
-    image: ['들기름두부구이1.jpeg', '들기름두부구이2.jpeg'],
+    image: ['들기름두부구이.png'],
     category: 'side',
   },
+// 세트 요리 -----------------------------------------------------------------------------
+
 ];
