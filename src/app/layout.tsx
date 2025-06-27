@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: '용스다이닝포차',
     images: [
       {
-        url: '/og-main.jpg', // 대표 이미지로 첫 번째 이미지 추천
+        url: '/main1.jpeg', // 대표 이미지로 첫 번째 이미지 추천
         width: 1200,
         height: 630,
         alt: '용스다이닝포차 매장 내부',

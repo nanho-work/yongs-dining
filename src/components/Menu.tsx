@@ -178,7 +178,7 @@ const menus = [
     title: '대포항 누룽지 오징어순대',
     description: '오징어 순대를 바삭하게 구워 양배추 초무침에 곁들여 먹는 메뉴',
     price: '25,000원',
-    image: ['대포항오징어누룽지순대1.jpeg', '대포항오징어누룽지순대2.jpeg', '대포항오징어누룽지순대3.jpeg'],
+    image: ['대포항오징어누룽지순대.png'],
     category: 'main-etc',
   },
   {
