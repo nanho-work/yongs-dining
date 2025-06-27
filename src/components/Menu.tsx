@@ -10,6 +10,7 @@ const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : '';
 export default function Menu() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [hideOverlayIndex] = useState<number | null>(null);
 
   const filteredMenus = selectedCategory === 'all'
     ? menus.filter((menu) => menu.category !== 'drink')
@@ -28,11 +29,11 @@ export default function Menu() {
 
   return (
     <div className="max-w-8xl mx-auto px-4 py-10">
-      <div className="text-m text-gray-800 bg-blue-50 border-l-4 border-blue-400 p-3 rounded mb-6">
+      <div className=" text-gray-800 rounded mb-6">
         <p>
-          전메뉴 <span className="font-semibold">수제 양념장</span>으로<br />
-          <span className="text-red-600 font-bold">주문과 동시에 조리되어</span> 다소 시간이 걸리더라도<br />
-          <span className="text-blue-600 font-bold">인내를 갖고 기다려주세요~</span>
+          두부요리로 오늘의 한잔을 더 <span className="font-semibold">특별하게</span><br />
+          양념부터 조리까지 <span className="text-red-600 font-bold">전 메뉴 직접 제조</span><br />
+          <span className="text-blue-600 font-bold">맛은 배신하지 않습니다.</span>
         </p>
       </div>
 
@@ -64,18 +65,25 @@ export default function Menu() {
                 )}
 
                 {/* ✅ 그라데이션 오버레이 + 텍스트 통합 */}
-                <div className="absolute inset-0 w-1/3 z-20 bg-gradient-to-r from-gray-800 to-gray-600/30 flex flex-col justify-start p-4 text-white">
-
-                  <h3 className="text-lg font-bold">{menu.title}</h3>
-                  <p
-                    className="text-sm mt-1"
-                    dangerouslySetInnerHTML={{ __html: menu.description }}
-                  />
-                  {menu.limited && (
-                    <p className="text-xs text-gray-300 mt-1">※ 예약 및 한정판매 메뉴입니다</p>
-                  )}
-                  <p className="text-base font-semibold text-white mt-2">{menu.price}</p>
-                </div>
+<div
+  className={`
+    absolute inset-0 w-full sm:w-1/3 z-20 
+    bg-transparent sm:bg-gradient-to-r sm:from-gray-800 sm:to-gray-600/30
+    flex flex-col justify-start p-4 text-white
+    transition-opacity duration-300
+    ${hideOverlayIndex === index ? 'opacity-0 pointer-events-none' : 'opacity-100'}
+  `}
+>
+  <h3 className="text-lg font-bold">{menu.title}</h3>
+  <p
+    className="text-sm mt-1 break-words"
+    dangerouslySetInnerHTML={{ __html: menu.description }}
+  />
+  {menu.limited && (
+    <p className="text-xs text-gray-300 mt-1">※ 예약 및 한정판매 메뉴입니다</p>
+  )}
+  <p className="text-base font-semibold text-white mt-2">{menu.price}</p>
+</div>
 
 
                 {/* ✅ 뱃지 - 이미지 중간에서 텍스트 위에 걸치는 느낌 */}
@@ -170,7 +178,7 @@ const menus = [
     title: '홍콩눈꽃교자',
     description: '비비고 교자만두의 <span style="color: #ef4444; font-weight: bold;">겉바속촉촉, 그라다 파다뇨 치즈의 풍미</span> ',
     price: '15,000원',
-    image: '홍콩눈꽃교자.jpeg',
+    image: '홍콩눈꽃교자.png',
     badge: 'HIT',
     category: 'main-etc',
   },
@@ -195,7 +203,7 @@ const menus = [
     title: '꿀호떡 아이스크림',
     description: '호떡 바닐라아이스크림,시나몬파우더를 뿌려 달콤한맛!!(2 piece)',
     price: '9,000원',
-    image: ['호떡아이스크림2.jpeg'],
+    image: ['호떡아이스크림.jpeg'],
     badge: 'BEST',
     category: 'side',
   },

@@ -1,79 +1,23 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import Image from 'next/image'
 
-const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : ''
-
-const images = [
-  `${prefix}/main1.jpeg`,
-  `${prefix}/main2.jpeg`,
-  `${prefix}/main3.jpeg`,
-
-]
-
+import HeroCarousel from '@/components/HeroCarousel'
 
 export default function Hero() {
-  const [index, setIndex] = useState(0)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
-
-  // 현재 인덱스를 기준으로 2개씩 보여주기
-  const visibleImages = [
-    images[index % images.length],
-    images[(index + 1) % images.length],
-  ]
-
   return (
-    <div className="relative max-w-7xl h-[800px] overflow-hidden mx-auto flex">
-      
-      {visibleImages.map((src, i) => (
-        <div key={src} className="relative w-1/2 h-full">
-          <Image
-            src={src}
-            alt={`배경 ${i + 1}`}
-            fill
-            className="object-cover transition-opacity duration-1000 ease-in-out"
-            priority={index === 0}
-          />
-        </div>
-      ))}
-
-
-      {/* 어두운 오버레이 */}
-      <div className="absolute inset-0 bg-black/40 z-20" />
-
-      {/* 스크롤 유도 애니메이션 */}
-      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center space-y-2">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex items-center justify-center relative">
-          <div className="w-1 h-1 bg-white rounded-full absolute animate-scrollDot" />
-        </div>
-        <div className="flex flex-col items-center text-white text-2xl leading-tight animate-bounce">
-          <Image
-            src={`${prefix}/arrow-white.png`}
-            alt="스크롤 유도 화살표"
-            width={24}
-            height={24}
-            className="animate-bounce"
-          />
-        </div>
+    <section className="bg-white mt-10 sm:mt-16 py-12 sm:py-20 hero-font">
+      <div className="max-w-6xl mx-auto text-left px-4">
+        <p className="text-base sm:text-lg md:text-xl text-red-400 font-bold mb-3 sm:mb-6">
+          용스 다이닝 포차
+        </p>
+        <p className="text-sm sm:text-base md:text-2xl text-gray-700 font-light pb-10 leading-relaxed">
+          신선한 재료,<br />
+          전문 쉐프의 요리로<br />
+          잊지 못할 경험을 선사합니다.
+        </p>
       </div>
 
-      {/* 인디케이터 점 */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex space-x-2">
-        {images.map((_, i) => (
-          <div
-            key={i}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === index ? 'bg-red-500 scale-110' : 'bg-white/70'
-              }`}
-          />
-        ))}
-      </div>
-    </div>
+      <HeroCarousel />
+    </section>
   )
 }
