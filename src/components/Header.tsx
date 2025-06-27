@@ -11,7 +11,7 @@ export default function Header() {
 
   return (
     <header className="w-full bg-white absolute top-0 left-0 z-50 shadow-md">
-      <div className="max-w-6xl mx-auto px-4 py-8 sm:py-10 flex items-center justify-between relative">
+      <div className="max-w-7xl mx-auto px-4 py-8 sm:py-10 flex items-center justify-between relative">
 
         {/* 좌측 문구 (모바일에선 숨김) */}
         <div className="hidden sm:block text-sm sm:text-base text-red-400 font-bold">

@@ -1,76 +1,220 @@
-'use client'
+'use client';
 
-import React from 'react'
+import Image from 'next/image';
+
+const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : '';
+
+type DrinkMenu = {
+  title: string;
+  description: string;
+  price: string;
+  image: string;
+  category: string;
+  badge?: string; // ← optional로 선언
+};
+
+const drinkMenus: DrinkMenu[] = [
+  {
+    title: '참이슬',
+    description: '',
+    price: '5,000원',
+    image: '주류-참이슬.png',
+    category: 'DRINK',
+  },
+  {
+    title: '처음처럼',
+    description: '',
+    price: '5,000원',
+    image: '주류-처음처럼.png',
+    category: 'DRINK',
+  },
+  {
+    title: '진로',
+    description: '',
+    price: '5,000원',
+    image: '주류-진로.png',
+    category: 'DRINK',
+  },
+  {
+    title: '새로',
+    description: '',
+    price: '5,000원',
+    image: '주류-새로.png',
+    category: 'DRINK',
+  },
+  {
+    title: '청하',
+    description: '',
+    price: '6,000원',
+    image: '주류-청하.png',
+    category: 'DRINK',
+  },
+  {
+    title: '토닉워터',
+    description: '',
+    price: '2,000원',
+    image: '주류-토닉워터.png',
+    category: 'DRINK',
+  },
+  {
+    title: '레몬 슬라이스',
+    description: '',
+    price: '2,000원',
+    image: '주류-레몬슬라이스.png',
+    category: 'DRINK',
+  },
+  {
+    title: '음료',
+    description: '',
+    price: '2,000원',
+    image: '주류-음료.png',
+    category: 'DRINK',
+  },
+  {
+    title: '위스키 하이볼',
+    description: '(진저, 토닉 택 가능)',
+    price: '8,000원',
+    image: '주류-위스키하이볼.jpeg',
+    category: 'HIGHBAILL',
+  },
+  {
+    title: '카시스 하이볼',
+    description: '블루베리가 들어있어 상큼한 하이볼',
+    price: '8,500원',
+    image: '주류-카시스하이볼.jpeg',
+    category: 'HIGHBAILL',
+  },
+  {
+    title: '매실 하이볼',
+    description: '한식요리에 잘 어울리는 하이볼',
+    price: '8,500원',
+    image: '주류-매실하이볼.jpeg',
+    category: 'HIGHBAILL',
+  },
+  {
+    title: '파우스트',
+    description: '칵테일 중 도수가 높은 악마 소환술',
+    price: '10,000원',
+    image: '주류-파우스트.png',
+    category: 'HIGHBAILL',
+  },
+  {
+    title: '카스',
+    description: '',
+    price: '5,000원',
+    image: '주류-카스.png',
+    category: 'BERR',
+  },
+  {
+    title: '테라',
+    description: '',
+    price: '5,000원',
+    image: '주류-테라.png',
+    category: 'BERR',
+  },
+  {
+    title: '호가든',
+    description: '수제맥주입문자, 부드러운 맛',
+    price: '6,000원',
+    image: '주류-호가든.png',
+    category: 'BERR',
+  },
+  {
+    title: '파울라너 헤페',
+    description: '독일맥주 중 밀과 과일의 깔끔함과 적당히 청량한 맛',
+    price: '7,000원',
+    image: '주류-파울라너헤페.png',
+    category: 'BERR',
+  },
+  {
+    title: '스텔라',
+    description: '청량한 산미, 깔끔한 맛',
+    price: '7,000원',
+    image: '주류-스텔라.png',
+    category: 'BERR',
+  },
+  {
+    title: '코젤다크',
+    description: '체코식 필스너, 부드럽고 균형 잡힌 맛',
+    price: '8,000원',
+    image: '주류-코젤다크.png',
+    category: 'BERR',
+    badge: 'BEST',
+  },
+  {
+    title: '인디카 IPA',
+    description: '미국식 하이 홉 찐한 IPA 스타일',
+    price: '9,000원',
+    image: '주류-인디카IPA.png',
+    category: 'BERR',
+    badge: 'BEST',
+  },
+  {
+    title: '워터멜론 위트에일',
+    description: '상큼한 수박향이 느껴지는 수제맥주',
+    price: '9,000원',
+    image: '주류-워터멜론위트에일.png',
+    category: 'BERR',
+    badge: 'HIT',
+  },
+  {
+    title: '듀체스 드 브르고뉴',
+    description: '벨기에 와인맥주, 산미와 풍부한 체리 향미',
+    price: '33,000원 (750ml)',
+    image: '주류-듀체스드브르고뉴.png',
+    category: 'BERR',
+    badge: '강추',
+  },
+];
 
 export default function DrinkMenu() {
+  const categories = ['DRINK', 'HIGHBAILL', 'BERR'];
+
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10 font-nanum-myeongjo">
-      <h1 className="text-2xl font-bold mb-6">DRINK MENU</h1>
+    <div className="space-y-12">
+      {categories.map((cat) => {
+        const filtered = drinkMenus.filter((drink) => drink.category === cat);
 
-      {/* DRINK */}
-      <section className="mb-8">
-        <h2 className="text-xl font-bold text-red-600 mb-2">DRINK</h2>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>소주 5.0 (참이슬, 처음처럼, 이즈백, 새로)</li>
-          <li>청하 6.0</li>
-          <li>토닉워터 2.0 / 레몬슬라이스 2.0 / 음료 2.0</li>
-        </ul>
-      </section>
+        if (filtered.length === 0) return null;
 
-      {/* HIGHBAILL */}
-      <section className="mb-8">
-        <h2 className="text-xl font-bold text-red-600 mb-2">HIGHBAILL</h2>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>하이볼 8.5 (요소 + 탄산 + 추가옵션 가능)</li>
-          <li>위스키하이볼 8.0 (토퍼, 조니워커 가능)</li>
-          <li>카스하이볼 8.5 (톡쏘면서 맥주의 맛을 살린 하이볼)</li>
-          <li>HIT 엘리하이볼 8.5 (엘리키친의 시그니처 하이볼)</li>
-          <li>파우스트 10.0 (진한 더블샷 느낌의 묵직한 하이볼)</li>
-        </ul>
-      </section>
+        return (
+          <div key={cat}>
+            <h2 className="text-xl font-bold text-gray-700 border-b-2 border-red-300 mb-4 pb-1">
+              {cat}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
+              {filtered.map((drink, index) => (
+                <div
+                  key={index}
+                  className="w-full h-[500px] bg-white rounded-md shadow-md flex items-center justify-center relative overflow-hidden"
+                >
+                  <Image
+                    src={`${prefix}/${drink.image}`}
+                    alt={drink.title}
+                    height={500} // ✅ 세로만 고정
+                    width={0}
+                    className="h-full w-auto object-contain"
+                  />
 
-      {/* BEER */}
-      <section className="mb-8">
-        <h2 className="text-xl font-bold text-red-600 mb-2">BEER</h2>
-        <p className="text-yellow-600 font-semibold mb-1">
-          *맥주의 세부 메뉴가 궁금하시다면 직원에게 물어주세요
-        </p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>카스, 테라 5.0</li>
-          <li>호가든 6.0 (부드럽고 은은한 향)</li>
-          <li>파울라너 헤페 7.0 (풍부한 밀맥주의 고소함과 바나나향)</li>
-          <li>BEST 곰표 라거 8.0 (부드러운 밀맛, 탄산감 적음)</li>
-          <li>BEST 인디카 IPA 9.0 (홉의 쌉쌀함, 전형적인 IPA 스타일)</li>
-          <li>HIT 워터멜론 위트에일 9.0 (수박향의 달콤함, 여름철 인기 메뉴)</li>
-        </ul>
-      </section>
+                  {/* 뱃지 */}
+                  {typeof drink.badge === 'string' && drink.badge.trim() !== '' && (
+                    <span className="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-3 py-1 z-30 shadow-md rounded">
+                      {drink.badge}
+                    </span>
+                  )}
 
-      {/* BOTTLE BEER & TRADITIONAL */}
-      <section className="mb-8">
-        <h2 className="text-xl font-bold text-red-600 mb-2">BOTTLE & TRADITIONAL</h2>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>BEST 듀체스 드 브로고뉴(750ml) 33.0 (벨기에의 와일드에일)</li>
-          <li>HIT 엘리치훈 크리스마스 맥주(300ml) 10.0</li>
-          <li>HIT 엘리치훈 크리스마스 맥주(750ml) 30.0</li>
-        </ul>
-      </section>
-
-      {/* 전통주 */}
-      <section className="mb-8">
-        <h2 className="text-xl font-bold text-red-600 mb-2">전통주</h2>
-        <p className="text-yellow-600 font-semibold mb-1">
-          *전통주의 세부 메뉴가 궁금하시다면 직원에게 물어주세요
-        </p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>옛날 동동주(750ml) 5.0</li>
-          <li>홍천 생막걸리(750ml) 7.0</li>
-          <li>부자 프리미엄 막걸리(750ml) 8.0</li>
-          <li>BEST 부자 프리미엄 프리미엄 막걸리(750ml) 15.0</li>
-          <li>HIT 해창 막걸리(750ml) 13.0</li>
-        </ul>
-      </section>
-
-      <p className="text-sm text-gray-500 mt-10">※ 일부 제품은 시즌 한정이거나 재고 상황에 따라 제공되지 않을 수 있습니다.</p>
+                  {/* 하단 설명 */}
+                  <div className="absolute bottom-0 left-0 w-full bg-black/60 text-white p-4">
+                    <h3 className="text-lg font-bold">{drink.title}</h3>
+                    <p className="text-sm mt-1">{drink.description}</p>
+                    <p className="text-base font-semibold mt-2">{drink.price}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
     </div>
-  )
+  );
 }
