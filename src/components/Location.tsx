@@ -83,7 +83,7 @@ export default function Location() {
                     {/* 연락처 */}
                     <div className="flex gap-x-4 items-start p-4">
                         <span className="w-20 font-bold text-gray-500">연락처</span>
-                        <span>0507-1473-0377</span>
+                        <span>070 8287 0377</span>
                     </div>
 
                     {/* 좌석 */}

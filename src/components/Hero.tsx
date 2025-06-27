@@ -6,12 +6,12 @@ import Image from 'next/image'
 const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : ''
 
 const images = [
-  `${prefix}/home1.png`,
-  `${prefix}/home2.png`,
-  `${prefix}/home3.png`,
-  `${prefix}/home4.png`,
-  `${prefix}/home5.png`,
+  `${prefix}/main1.jpeg`,
+  `${prefix}/main2.jpeg`,
+  `${prefix}/main3.jpeg`,
+
 ]
+
 
 export default function Hero() {
   const [index, setIndex] = useState(0)
@@ -23,20 +23,27 @@ export default function Hero() {
     return () => clearInterval(interval)
   }, [])
 
+  // 현재 인덱스를 기준으로 2개씩 보여주기
+  const visibleImages = [
+    images[index % images.length],
+    images[(index + 1) % images.length],
+  ]
+
   return (
-    <div className="relative w-full h-screen overflow-hidden -mt-16">
-      {/* 배경 이미지들 */}
-      {images.map((src, i) => (
-        <Image
-          key={src}
-          src={src}
-          alt={`배경 ${i + 1}`}
-          fill
-          className={`object-cover absolute inset-0 transition-opacity duration-1000 ease-in-out ${i === index ? 'opacity-100 z-20' : 'opacity-0 z-10'
-            }`}
-          priority={i === 0}
-        />
+    <div className="relative max-w-6xl h-[900px] overflow-hidden mx-auto flex">
+      
+      {visibleImages.map((src, i) => (
+        <div key={src} className="relative w-1/2 h-full">
+          <Image
+            src={src}
+            alt={`배경 ${i + 1}`}
+            fill
+            className="object-cover transition-opacity duration-1000 ease-in-out"
+            priority={index === 0}
+          />
+        </div>
       ))}
+
 
       {/* 어두운 오버레이 */}
       <div className="absolute inset-0 bg-black/40 z-20" />

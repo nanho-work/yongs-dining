@@ -9,7 +9,8 @@ const config = {
       animation: {
         'slide-x': 'slide-x 10s linear infinite',
         'scrollDown': 'scrollDown 1.5s ease-in-out infinite',
-        'scrollDot': 'scrollDot 1.2s ease-in-out infinite', // 🔥 이거 추가
+        'scrollDot': 'scrollDot 1.2s ease-in-out infinite',
+        'blink': 'blink 1.2s ease-in-out infinite', // ✅ 추가됨
       },
       keyframes: {
         'slide-x': {
@@ -21,10 +22,14 @@ const config = {
           '50%': { opacity: '1', transform: 'translateY(4px)' },
           '100%': { opacity: '0', transform: 'translateY(8px)' },
         },
-        'scrollDot': { // 🔥 이거 추가
+        'scrollDot': {
           '0%': { transform: 'translateY(2px)', opacity: '0' },
           '30%': { opacity: '1' },
           '100%': { transform: 'translateY(20px)', opacity: '0' },
+        },
+        'blink': { // ✅ 추가됨
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
         },
       },
     },
@@ -32,4 +37,4 @@ const config = {
   plugins: [],
 }
 
-export default config
+export default config;
