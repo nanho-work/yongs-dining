@@ -6,10 +6,10 @@ import Image from 'next/image'
 const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : ''
 
 const images = [
-  `${prefix}/리얼한우두부전골.png`,
-  `${prefix}/맨하탄카나페.png`,
-  `${prefix}/수제수육보쌈.jpeg`,
-  `${prefix}/호떡아이스크림.jpeg`,
+  `${prefix}/main_doofu-리얼한우두부전골.png`,
+  `${prefix}/side-맨하탄카나페.png`,
+  `${prefix}/main_doofu-수제두부보쌈.jpeg`,
+  `${prefix}/side-호떡아이스크림.jpeg`,
 ]
 
 
