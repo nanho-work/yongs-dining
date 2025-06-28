@@ -186,14 +186,17 @@ export default function DrinkMenu() {
               {filtered.map((drink, index) => (
                 <div
                   key={index}
-                  className="w-full h-[500px] bg-white rounded-md shadow-md flex items-center justify-center relative overflow-hidden"
+                  className="w-full h-[400px] rounded-md shadow-md flex items-center justify-center relative overflow-hidden bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url(${prefix}/your-background.png)`, // 여기에 백그라운드 이미지 경로 넣기
+                  }}
                 >
                   <Image
                     src={`${prefix}/${drink.image}`}
                     alt={drink.title}
                     height={500} // ✅ 세로만 고정
                     width={0}
-                    className="h-full w-auto object-contain"
+                    className="h-350 w-auto object-contain"
                   />
 
                   {/* 뱃지 */}
