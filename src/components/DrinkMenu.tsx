@@ -103,42 +103,42 @@ const drinkMenus: DrinkMenu[] = [
     description: '',
     price: '5,000원',
     image: '주류-카스.png',
-    category: 'BERR',
+    category: 'BEER',
   },
   {
     title: '테라',
     description: '',
     price: '5,000원',
     image: '주류-테라.png',
-    category: 'BERR',
+    category: 'BEER',
   },
   {
     title: '호가든',
     description: '수제맥주입문자, 부드러운 맛',
     price: '6,000원',
     image: '주류-호가든.png',
-    category: 'BERR',
+    category: 'BEER',
   },
   {
     title: '파울라너 헤페',
     description: '독일맥주 중 밀과 과일의 깔끔함과 적당히 청량한 맛',
     price: '7,000원',
     image: '주류-파울라너헤페.png',
-    category: 'BERR',
+    category: 'BEER',
   },
   {
     title: '스텔라',
     description: '청량한 산미, 깔끔한 맛',
     price: '7,000원',
     image: '주류-스텔라.png',
-    category: 'BERR',
+    category: 'BEER',
   },
   {
     title: '코젤다크',
     description: '체코식 필스너, 부드럽고 균형 잡힌 맛',
     price: '8,000원',
     image: '주류-코젤다크.png',
-    category: 'BERR',
+    category: 'BEER',
     badge: 'BEST',
   },
   {
@@ -146,7 +146,7 @@ const drinkMenus: DrinkMenu[] = [
     description: '미국식 하이 홉 찐한 IPA 스타일',
     price: '9,000원',
     image: '주류-인디카IPA.png',
-    category: 'BERR',
+    category: 'BEER',
     badge: 'BEST',
   },
   {
@@ -154,7 +154,7 @@ const drinkMenus: DrinkMenu[] = [
     description: '상큼한 수박향이 느껴지는 수제맥주',
     price: '9,000원',
     image: '주류-워터멜론위트에일.png',
-    category: 'BERR',
+    category: 'BEER',
     badge: 'HIT',
   },
   {
@@ -162,13 +162,125 @@ const drinkMenus: DrinkMenu[] = [
     description: '벨기에 와인맥주, 산미와 풍부한 체리 향미',
     price: '33,000원 (750ml)',
     image: '주류-듀체스드브르고뉴.png',
-    category: 'BERR',
+    category: 'BEER',
     badge: '강추',
   },
+  {
+    title: '델리리움 레드',
+    description: '벨기에 프룻비어, 새콤달콤한 체리향과 쌉싸름함',
+    price: '10,000원 (330ml)',
+    image: '주류-델리리움레드.png',
+    category: 'BEER',
+    badge: '여름 강추',
+  },
+  {
+    title: '뭉스카페',
+    description: '수도원 맥주, 상큼한 산미와 달콤함',
+    price: '30,000원 (750ml)',
+    image: '주류-뭉스카페.png',
+    category: 'BEER',
+    badge: '',
+  },
+  {
+    title: '라트라페 쿼드루펠',
+    description: '풍부하고 화려한 풍미, 높은 도수에도 부드러움',
+    price: '10,000원 (330ml)',
+    image: '주류-라트라페쿼드루펠.png',
+    category: 'BEER',
+    badge: 'HIT',
+  },
+  {
+    title: '라트라페 쿼드루펠',
+    description: '풍부하고 화려한 풍미, 높은 도수에도 부드러움',
+    price: '30,000원 (750ml)',
+    image: '주류-라트라페쿼드루펠.png',
+    category: 'BEER',
+    badge: '',
+  },
+  {
+    title: '델리리움 크리스마스 맥주',
+    description: '캐러멜, 체리, 감초의 복합적인 풍미',
+    price: '10,000원 (330ml)',
+    image: '주류-델리리움크리스마스.png',
+    category: 'BEER',
+    badge: '인기',
+  },
+  {
+    title: '델리리움 크리스마스 맥주',
+    description: '캐러멜, 체리, 감초의 복합적인 풍미',
+    price: '30,000원 (750ml)',
+    image: '주류-델리리움크리스마스.png',
+    category: 'BEER',
+    badge: '',
+  },
+  {
+    title: '옛날 동동주',
+    description: '나주 전통 막걸리, 쌀알이 동동, 자연스러운 천연탄산',
+    price: '6,000원 (750ml)',
+    image: '막걸리-옛날동동주.png',
+    category: '전통주',
+    badge: '',
+  },
+  {
+    title: '허니버터아몬드주',
+    description: '고소한 아몬드와 허니버터의 달콤함',
+    price: '6,000원 (750ml)',
+    image: '막걸리-허니버터아몬드주.png',
+    category: '전통주',
+    badge: '',
+  },
+  {
+    title: '부자 프리미엄 막걸리',
+    description: '식이섬유가 다량 함유된 건강 막걸리, 외국인에게 인기',
+    price: '8,000원 (375ml)',
+    image: '막걸리-부자프리미엄막걸리.png',
+    category: '전통주',
+    badge: '',
+  },
+  {
+    title: '우곡생주 프리미엄 막걸리',
+    description: '쌀고유의 맛과 바디감, 적은 양조미',
+    price: '15,000원 (750ml)',
+    image: '막걸리-우곡생주프리미엄막걸리.png',
+    category: '전통주',
+    badge: 'BEST',
+  },
+  {
+    title: '세번빛은 살맛나네 막걸리',
+    description: '딥한 맛과 요거트 같은 부드러움, 목넘김 좋음',
+    price: '9,000원 (750ml)',
+    image: '막걸리-살맛나네 막걸리.png',
+    category: '전통주',
+    badge: 'HIT',
+  },
+  {
+    title: '너도바질 스파클링 막걸리',
+    description: '향긋한 바질 향, 탄산 있는 찐막 스파클링 막걸리',
+    price: '13,000원 (375ml)',
+    image: '막걸리-너도바질스파클링막걸리.png',
+    category: '전통주',
+    badge: 'HIT',
+  },
+  {
+    title: '화비',
+    description: '창쌀 / 누룩제이 / 구죽향',
+    price: '11,000원 (6.5도)',
+    image: '막걸리-화비.png',
+    category: '전통주',
+    badge: 'NEW',
+  },
+  {
+    title: '인더베럴',
+    description: '해피보이',
+    price: '13,000원 (10도) / 18,000원 (12도)',
+    image: '막걸리-인더베럴.png',
+    category: '전통주',
+    badge: 'NEW',
+  }
 ];
 
 export default function DrinkMenu() {
-  const categories = ['DRINK', 'HIGHBAILL', 'BERR'];
+  const categories = ['DRINK', 'HIGHBAILL', 'BEER','전통주'];
 
   return (
     <div className="space-y-12">
@@ -207,7 +319,7 @@ export default function DrinkMenu() {
                   )}
 
                   {/* 하단 설명 */}
-                  <div className="absolute bottom-0 left-0 w-full bg-black/60 text-white p-4">
+                  <div className="absolute bottom-0 left-0 w-full bg-black/30 text-white p-4 h-[140px] overflow-y-auto">
                     <h3 className="text-lg font-bold">{drink.title}</h3>
                     <p className="text-sm mt-1">{drink.description}</p>
                     <p className="text-base font-semibold mt-2">{drink.price}</p>

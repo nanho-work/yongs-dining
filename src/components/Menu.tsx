@@ -32,7 +32,7 @@ export default function Menu() {
       <div className=" text-gray-800 rounded mb-6">
         <p>
           두부요리로 오늘의 한잔을 더 <span className="font-semibold">특별하게</span><br />
-          양념부터 조리까지 <span className="text-red-600 font-bold">전 메뉴 직접 제조</span><br />
+          양념부터 조리까지 <span className="text-red-600 font-bold">전 메뉴 직접 만듭니다.</span><br />
           <span className="text-blue-600 font-bold">맛은 배신하지 않습니다.</span>
         </p>
       </div>
