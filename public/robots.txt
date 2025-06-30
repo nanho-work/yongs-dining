@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yongs-dining.com/sitemap.xml
