@@ -63,7 +63,7 @@ export default function MidSection() {
           ref={(el) => (refs.current[i] = el)}
           className={`flex flex-col md:flex-row ${i % 2 === 1 ? 'md:flex-row-reverse' : ''} items-center gap-10 opacity-0 translate-y-10 transition-all duration-700 ease-in-out`}
         >
-          <div className="relative w-full md:w-1/2 rounded-lg overflow-hidden">
+          <div className="relative w-full md:w-1/2 rounded-lg overflow-hidden scale-90 md:scale-80 transition-transform duration-300">
             <Image
               src={item.src}
               alt={item.title}
