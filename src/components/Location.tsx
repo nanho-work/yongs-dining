@@ -39,24 +39,20 @@ export default function Location() {
                                     <tr className="bg-gray-100 text-gray-700">
                                         <th className="px-3 py-2 border-b border-gray-200">요 일</th>
                                         <th className="px-3 py-2 border-b border-gray-200">영업시간</th>
-                                        <th className="px-3 py-2 border-b border-gray-200">라스트오더</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td className="px-3 py-2 border-b">월~목</td>
                                         <td className="px-3 py-2 border-b">18:00 ~ 02:00</td>
-                                        <td className="px-3 py-2 border-b">00:30</td>
                                     </tr>
                                     <tr>
                                         <td className="px-3 py-2 border-b">금~토</td>
                                         <td className="px-3 py-2 border-b">17:00 ~ 05:00</td>
-                                        <td className="px-3 py-2 border-b">03:30</td>
                                     </tr>
                                     <tr>
                                         <td className="px-3 py-2 border-b">일</td>
                                         <td className="px-3 py-2 border-b">17:00 ~ 24:00</td>
-                                        <td className="px-3 py-2 border-b">22:30</td>
                                     </tr>
 
                                 </tbody>

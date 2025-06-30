@@ -161,7 +161,7 @@ const menus = [
   },
   {
     title: '해장 두부전골',
-    description: '모두부, 황태, 알배기, 민물새우, 꽃게 해장이 되는 <span style="color: #ef4444; font-weight: bold;"><br/>칼칼하고 시원한 맛!</span>',
+    description: '모두부, 황태, 알배기, 민물새우, 꽃게 <br/>해장이 되는 <span style="color: #ef4444; font-weight: bold;">칼칼하고 시원한 맛!</span>',
     price: '28,000원 / 혼술 15,000원',
     image: ['main_doofu-해장두부전골.png'],
     category: 'main-tofu',
@@ -176,7 +176,7 @@ const menus = [
   },
   {
     title: '300g 폭탄 두부두루치기',
-    description: '들기름으로 구운 모두부, 우삼겹, 밥과 술을 부르는 <br/><span style="color: #ef4444; font-weight: bold;">중독적인 맛!</span>',
+    description: '들기름으로 구운 모두부, 우삼겹, <br/>밥과 술을 부르는 <span style="color: #ef4444; font-weight: bold;">중독적인 맛!</span>',
     price: '28,000원 /   혼술 15,000원',
     image: 'main_doofu-폭탄두부두루치기.png',
     badge: 'BEST',
@@ -184,7 +184,7 @@ const menus = [
   },
   {
     title: '얼큰두부짜글이',
-    description: '모두부, 스팸, 물만두, 감자를 짜글짜글 지져내어 <span style="color: #ef4444; font-weight: bold;">칼칼한 맛!</span>',
+    description: '모두부, 스팸, 물만두, 감자를 <br/>짜글짜글 지져내어 <span style="color: #ef4444; font-weight: bold;">칼칼한 맛!</span>',
     price: '25,000원 / 혼술 15,000원',
     image: ['main_doofu-얼큰두부짜글이.png'],
     badge: 'HIT',

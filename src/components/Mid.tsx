@@ -9,27 +9,27 @@ const imageData = [
   {
     src: `${prefix}/mid5.jpeg`,
     title: '행복한 한 끼, 잊지 못할 추억',
-    description: '따뜻한 환대와 함께 웃음이 가득한 순간. 셰프와 손님이 함께 만들어가는 용스다이닝포차의 진짜 이야기.',
+    description: '따뜻한 환대와 함께 웃음이 가득한 순간. <br/> 셰프와 손님이 함께 만들어가는 <br/>용스다이닝포차의 진짜 이야기.',
   },
   {
     src: `${prefix}/mid1.jpeg`,
     title: '추억과 낭만이 공존하는 공간',
-    description: '빈티지 LP판과 감성적인 소품들이 어우러진 공간, 음악과 이야기가 흐르는 용스다이닝포차의 한켠.',
+    description: '빈티지 LP판과 감성적인 소품들이 어우러진 공간, <br/>음악과 이야기가 흐르는 용스다이닝포차의 한켠.',
   },
   {
     src: `${prefix}/mid4.jpeg`,
     title: '감각과 실력을 겸비한 셰프의 공간',
-    description: '개성 넘치는 감성 공간에서, 셰프가 선보이는 진짜 요리와 따뜻한 환대. 용스다이닝포차는 맛과 분위기 모두를 갖춘 특별한 장소입니다.',
+    description: '개성 넘치는 감성 공간에서,<br/> 셰프가 선보이는 진짜 요리와 따뜻한 환대. <br/>용스다이닝포차는 맛과 분위기 <br/>모두를 갖춘 특별한 장소입니다.',
   },
   {
     src: `${prefix}/mid3.jpeg`,
     title: '레트로 감성의 결정체',
-    description: 'LP판, 카세트테이프, 추억의 소품들이 가득한 이 공간은 시간여행을 떠나는 듯한 기분을 선사합니다. 용스다이닝포차만의 감성으로 꾸며진 포토존.',
+    description: 'LP판, 카세트테이프, <br/>추억의 소품들이 가득한 이 공간은 <br/>시간여행을 떠나는 듯한 기분을 선사합니다. <br/>용스다이닝포차만의 감성으로 꾸며진 포토존.',
   },
   {
     src: `${prefix}/mid2.jpeg`,
     title: '홍콩 골목에서 만난 듯한 감성 입구',
-    description: '여행의 추억처럼 반겨주는 이 입구는 셰프의 경험과 감각이 녹아든 시작점입니다. 멋스럽게 꾸며진 외관을 지나, 이제 새로운 식문화를 경험해보세요.',
+    description: '여행의 추억처럼 반겨주는 이 입구는 <br/>셰프의 경험과 감각이 녹아든 시작점입니다. <br/>멋스럽게 꾸며진 외관을 지나, <br/>이제 새로운 식문화를 경험해보세요.',
   },
 ]
 
@@ -75,7 +75,10 @@ export default function MidSection() {
 
           <div className="w-full md:w-1/2 text-center md:text-left">
             <h3 className="text-xl font-semibold text-gray-900">{item.title}</h3>
-            <p className="mt-2 text-sm text-gray-600">{item.description}</p>
+            <p
+              className="mt-2 text-sm text-gray-600"
+              dangerouslySetInnerHTML={{ __html: item.description }}
+            />
           </div>
         </div>
       ))}
