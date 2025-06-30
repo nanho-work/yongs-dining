@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Lottie from 'lottie-react';
 import instagramAnim from '@/animations/instagram.json';
 
+const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : '';
+
 const FloatingButton = () => {
     const handleScrollTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -22,7 +24,7 @@ const FloatingButton = () => {
                     className="w-10 h-10 flex justify-center items-center overflow-hidden"
                 >
                     <Image
-                        src="/kakao.png"
+                        src={`${prefix}/kakao.png`}
                         alt="카카오 예약"
                         width={56}
                         height={56}
@@ -52,7 +54,7 @@ const FloatingButton = () => {
                 className="w-9 h-9 flex justify-center items-center rounded-full bg-orange-100 border border-orange-300 shadow-sm overflow-hidden"
             >
                 <Image
-                    src="/top.png"
+                    src={`${prefix}/top.png`}
                     alt="위로 이동"
                     width={40}
                     height={40}
