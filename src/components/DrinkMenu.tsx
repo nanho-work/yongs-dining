@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : '';
+const prefix = ''
 
 type DrinkMenu = {
   title: string;

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Lottie from 'lottie-react';
 import instagramAnim from '@/animations/instagram.json';
 
-const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : '';
+const prefix = ''
 
 const FloatingButton = () => {
     const handleScrollTop = () => {

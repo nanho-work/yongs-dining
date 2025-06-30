@@ -4,7 +4,7 @@
 import Image from 'next/image'
 import React from 'react'
 
-const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : ''
+const prefix = ''
 
 export default function Location() {
     return (

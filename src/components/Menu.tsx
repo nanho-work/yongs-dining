@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import MenuTabs from './MenuTabs';
 import DrinkMenu from './DrinkMenu';
 
-const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : '';
+const prefix = ''
 
 export default function Menu() {
   const [activeIndex, setActiveIndex] = useState(0);
