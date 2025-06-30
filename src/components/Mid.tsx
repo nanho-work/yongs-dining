@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 
-const prefix = process.env.NODE_ENV === 'production' ? '/yongs-dining' : ''
+const prefix = ''
 
 const imageData = [
   {
