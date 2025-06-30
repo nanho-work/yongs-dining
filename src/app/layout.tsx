@@ -3,11 +3,12 @@ import './globals.css'
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import FloatingButton from '@/components/FloatingButton'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: '용스다이닝포차 | 분위기 좋은 감성포차',
   description: '모란역에서 가장 따뜻한 감성 술집, 용스다이닝포차에서 특별한 하루를 즐겨보세요.',
-  keywords: ['용스','두부맛집','두부카세','용스다이닝포차','용스다이닝', '감성포차', '모란역맛집', '다이닝', '술집', '포차', '분위기좋은포차', '소울푸드', '데이트맛집', '분위기좋은술집'],
+  keywords: ['용스', '두부맛집', '두부카세', '용스다이닝포차', '용스다이닝', '감성포차', '모란역맛집', '다이닝', '술집', '포차', '분위기좋은포차', '소울푸드', '데이트맛집', '분위기좋은술집'],
 
   // favicon
   icons: {
@@ -57,7 +58,9 @@ export default function RootLayout({
         <Header />
         <main className="flex-grow pt-16">{children}</main>
         <FloatingButton />
+        <Footer />
       </body>
+      
     </html>
   )
 }
