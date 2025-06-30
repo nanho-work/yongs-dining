@@ -7,47 +7,48 @@ import 'swiper/css/pagination';
 import Image from 'next/image'
 import { Navigation, Autoplay } from 'swiper/modules'
 
+const prefix = ''
 
 type Blog = {
     title: string
-    image: string
+    src: string
     url: string
 }
 
 const blogs: Blog[] = [
     {
         title: '고객 A 블로그',
-        image: '/blog1.jpeg',
+        src: '/blog1.jpeg',
         url: 'https://blog.naver.com/ogada_zip/223871106731',
     },
     {
         title: '고객 B 블로그',
-        image: '/blog2.jpeg',
+        src: '/blog2.jpeg',
         url: 'https://blog.naver.com/awh1575/223864421218',
     },
     {
         title: '고객 c 블로그',
-        image: '/blog3.jpg',
+        src: '/blog3.jpg',
         url: 'https://blog.naver.com/on_wha/223804078945',
     },
     {
         title: '고객 d 블로그',
-        image: '/blog4.jpeg',
+        src: '/blog4.jpeg',
         url: 'https://blog.naver.com/dingguul/223801321511',
     },
     {
         title: '고객 e 블로그',
-        image: '/blog5.jpg',
+        src: '/blog5.jpg',
         url: 'https://blog.naver.com/awh1575/223773147390',
     },
     {
         title: '고객 f 블로그',
-        image: '/blog6.jpg',
+        src: '/blog6.jpg',
         url: 'https://blog.naver.com/lovely_mingyo/223759722727',
     },
     {
         title: '고객 g 블로그',
-        image: '/blog7.jpg',
+        src: '/blog7.jpg',
         url: 'https://blog.naver.com/smrf2012/223675172717',
     },
 ]
@@ -86,7 +87,7 @@ export default function BlogPreviewSlider() {
                         <a href={blog.url} target="_blank" rel="noopener noreferrer" className="block">
                             <div className="aspect-[3/2] w-full overflow-hidden rounded-xl shadow-md hover:shadow-lg transition">
                                 <Image
-                                    src={blog.image}
+                                    src={`${prefix}${blog.src}`}
                                     alt={blog.title}
                                     fill
                                     className="object-cover"
