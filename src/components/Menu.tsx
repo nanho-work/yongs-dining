@@ -101,7 +101,7 @@ export default function Menu() {
                       />
                       {menu.price && (
                         <p className="mt-3 font-semibold">{menu.price}</p>
-                        
+
                       )}
                     </div>
                   </div>
@@ -151,6 +151,7 @@ export default function Menu() {
 
 const menus = [
   // 메인 두부 요리 
+
   {
     title: '리얼 한우두부전골',
     description: '<strong>“최고의요리비결”</strong> 김인숙 셰프와 <br/>용스 콜라보 메뉴!<br/>직접 삶은 한우, 고소한 순두부, 모두부, 민물새우, 꽃게, <span style="color: #ef4444; font-weight: bold;">진하고 얼큰한맛!</span>',
@@ -282,5 +283,18 @@ const menus = [
     category: 'side',
   },
   // 세트 요리 -----------------------------------------------------------------------------
-
+  {
+    title: '용스 세트메뉴 (혼술 / 2인 / 3인)',
+    description: `
+    <ul>
+      <li><strong>혼술세트 20,000원</strong> <br/>- 전골 + 교자 2피스 (1인)</li>
+      <li><strong>2인세트 35,000원</strong> <br/>- 전골 + 교자 5피스</li>
+      <li><strong>3인세트 40,000원</strong> <br/>- 전골 + 교자 10피스</li>
+    </ul>
+    <p style="color:#ef4444;">* 세트메뉴 따로 주문 시 할인 적용 불가</p>
+  `,
+    image: ['set-두부전골.png'],
+    badge: 'Set',
+    category: 'set'
+  }
 ];
