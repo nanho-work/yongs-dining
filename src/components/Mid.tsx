@@ -63,8 +63,14 @@ export default function MidSection() {
           ref={(el) => (refs.current[i] = el)}
           className={`flex flex-col md:flex-row ${i % 2 === 1 ? 'md:flex-row-reverse' : ''} items-center gap-10 opacity-0 translate-y-10 transition-all duration-700 ease-in-out`}
         >
-          <div className="relative w-full md:w-1/2 h-[360px] rounded-lg overflow-hidden">
-            <Image src={item.src} alt={item.title} fill className="object-cover" />
+          <div className="relative w-full md:w-1/2 rounded-lg overflow-hidden">
+            <Image
+              src={item.src}
+              alt={item.title}
+              width={800} // 원본 비율에 맞게 지정
+              height={500}
+              className="object-cover w-full h-auto rounded-lg"
+            />
           </div>
 
           <div className="w-full md:w-1/2 text-center md:text-left">

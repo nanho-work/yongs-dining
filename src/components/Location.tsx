@@ -13,12 +13,13 @@ export default function Location() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                 {/* 좌측: 매장 이미지 */}
-                <div className="w-full h-[550px] relative">
+                <div className="w-full relative">
                     <Image
                         src={`${prefix}/location.jpeg`}
                         alt="매장 이미지"
-                        fill
-                        className="object-cover rounded-lg shadow"
+                        width={800} // 이미지 원본 사이즈에 맞게 조정
+                        height={600}
+                        className="object-contain w-full h-auto rounded-lg shadow"
                     />
                 </div>
 
@@ -43,7 +44,7 @@ export default function Location() {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td className="px-3 py-2 border-b">목</td>
+                                        <td className="px-3 py-2 border-b">월~목</td>
                                         <td className="px-3 py-2 border-b">18:00 ~ 02:00</td>
                                         <td className="px-3 py-2 border-b">00:30</td>
                                     </tr>
@@ -57,11 +58,7 @@ export default function Location() {
                                         <td className="px-3 py-2 border-b">17:00 ~ 24:00</td>
                                         <td className="px-3 py-2 border-b">22:30</td>
                                     </tr>
-                                    <tr>
-                                        <td className="px-3 py-2 border-b">월~수</td>
-                                        <td className="px-3 py-2 border-b">18:00 ~ 02:00</td>
-                                        <td className="px-3 py-2 border-b">00:30</td>
-                                    </tr>
+
                                 </tbody>
                             </table>
                             <p className="text-xs text-gray-500 mt-2">※ 평일 12시 이후는 시간 변동 / 전화 문의</p>
@@ -72,11 +69,10 @@ export default function Location() {
                     <div className="flex gap-x-4 items-start p-4">
                         <span className="w-20 font-bold text-gray-500">주차</span>
                         <div className="space-y-0.5">
-                            <div>가능</div>
-                            <div className="text-xs text-gray-500">(50분 1,000원 / 추가 10분당 200원 / 최대 10,000원)</div>
                             <div>모란복지관지하주차장</div>
                             <div>모란시장공영주차장</div>
                             <div>중원구청주차장 이용</div>
+                            <div className="text-xs text-gray-500">(50분 1,000원 / 추가 10분당 200원 / 최대 10,000원)</div>
                         </div>
                     </div>
 

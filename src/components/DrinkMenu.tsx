@@ -294,13 +294,13 @@ export default function DrinkMenu() {
             <h2 className="text-xl font-bold text-gray-700 border-b-2 border-red-300 mb-4 pb-1">
               {cat}
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-6">
               {filtered.map((drink, index) => (
                 <div
                   key={index}
                   className="w-full h-[400px] rounded-md shadow-md flex items-center justify-center relative overflow-hidden bg-cover bg-center"
                   style={{
-                    backgroundImage: `url(${prefix}/your-background.png)`, // 여기에 백그라운드 이미지 경로 넣기
+                    backgroundImage: `url(${prefix}/background1.png)`, // 여기에 백그라운드 이미지 경로 넣기
                   }}
                 >
                   <Image
@@ -320,9 +320,9 @@ export default function DrinkMenu() {
 
                   {/* 하단 설명 */}
                   <div className="absolute bottom-0 left-0 w-full bg-black/30 text-white p-4 h-[140px] overflow-y-auto">
-                    <h3 className="text-lg font-bold">{drink.title}</h3>
+                    <h3 className="text-base font-bold">{drink.title}</h3>
                     <p className="text-sm mt-1">{drink.description}</p>
-                    <p className="text-base font-semibold mt-2">{drink.price}</p>
+                    <p className="text-sm font-semibold mt-1">{drink.price}</p>
                   </div>
                 </div>
               ))}
