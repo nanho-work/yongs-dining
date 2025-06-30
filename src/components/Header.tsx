@@ -10,7 +10,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="w-full bg-transparent fixed top-0 left-0 z-50 transition-colors duration-300">
+    <header className="w-full bg-transparent transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 py-8 sm:py-10 flex items-center justify-between relative">
 
         {/* 좌측 문구 (모바일에선 숨김) */}
