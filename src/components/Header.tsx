@@ -11,7 +11,7 @@ export default function Header() {
 
   return (
     <header className="w-full bg-transparent transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 py-8 sm:py-10 flex items-center justify-between relative">
+      <div className="max-w-7xl mx-auto px-6 py-8 sm:py-10 flex items-center justify-between relative">
 
         {/* 좌측 문구 (모바일에선 숨김) */}
         <div className="hidden sm:block text-sm sm:text-base text-red-400 font-bold">
@@ -32,6 +32,7 @@ export default function Header() {
         </div>
         {/* 데스크탑 메뉴 (sm 이상에서만 보임) */}
         <div className="hidden sm:flex space-x-6 text-base font-bold text-red-500">
+          <Link href="/lunch" className="hover:text-red-600">점심특선</Link>
           <Link href="/menu" className="hover:text-red-600">메뉴</Link>
           <Link href="/location" className="hover:text-red-600">매장안내</Link>
         </div>
@@ -48,6 +49,13 @@ export default function Header() {
           {/* 클릭 시 나타나는 메뉴 */}
           {isMenuOpen && (
             <div className="absolute top-full left-0 w-full bg-white shadow-md z-40 text-center py-4">
+              <Link
+                href="/lunch"
+                className="block py-2 text-red-500 font-bold hover:text-red-600"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                런치
+              </Link>
               <Link
                 href="/menu"
                 className="block py-2 text-red-500 font-bold hover:text-red-600"

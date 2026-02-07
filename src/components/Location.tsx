@@ -43,21 +43,38 @@ export default function Location() {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td className="px-3 py-2 border-b">월~목</td>
-                                        <td className="px-3 py-2 border-b">18:00 ~ 02:00</td>
+                                        <td className="px-3 py-2 border-b">평 일</td>
+                                        <td className="px-3 py-2 border-b">18:00 ~ 01:00</td>
                                     </tr>
                                     <tr>
-                                        <td className="px-3 py-2 border-b">금~토</td>
-                                        <td className="px-3 py-2 border-b">17:00 ~ 05:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-3 py-2 border-b">일</td>
-                                        <td className="px-3 py-2 border-b">17:00 ~ 24:00</td>
+                                        <td className="px-3 py-2 border-b">주 말</td>
+                                        <td className="px-3 py-2 border-b">17:00 ~ 03:00</td>
                                     </tr>
 
                                 </tbody>
                             </table>
                             <p className="text-xs text-gray-500 mt-2">※ 평일 12시 이후는 시간 변동 / 전화 문의</p>
+                        </div>
+                    </div>
+                    {/* 점심트것ㄴ */}
+                    <div className="flex gap-x-4 items-start p-4 ">
+                        <span className="w-20 font-bold text-gray-500">점심특선</span>
+                        <div className="overflow-x-auto w-full">
+                            <table className="min-w-[300px]  text-sm text-center border-gray-200">
+                                <thead>
+                                    <tr className="bg-gray-100 text-gray-700">
+                                        <th className="px-3 py-2 border-b border-gray-200">요 일</th>
+                                        <th className="px-3 py-2 border-b border-gray-200">영업시간</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td className="px-3 py-2 border-b">목요일~일요일</td>
+                                        <td className="px-3 py-2 border-b">12:00 ~ 14:00</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
 

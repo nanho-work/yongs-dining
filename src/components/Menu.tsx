@@ -18,7 +18,7 @@ export default function Menu() {
     : menus.filter((menu) => menu.category === selectedCategory);
 
   useEffect(() => {
-    const hasSlider = menus.some(menu => Array.isArray(menu.image));
+    const hasSlider = menus.some(menu => Array.isArray(menu.image) && menu.image.length > 1);
     if (!hasSlider) return;
 
     const interval = setInterval(() => {
@@ -30,13 +30,7 @@ export default function Menu() {
 
   return (
     <div className="max-w-8xl mx-auto px-4 py-10">
-      <div className="text-gray-800 rounded mb-6">
-        <p>
-          두부요리로 오늘의 한잔을 더 <span className="font-semibold">특별하게</span><br />
-          양념부터 조리까지 <span className="text-red-600 font-bold">전 메뉴 직접 만듭니다.</span><br />
-          <span className="text-blue-600 font-bold">맛은 배신하지 않습니다.</span>
-        </p>
-      </div>
+
 
       <MenuTabs selected={selectedCategory} onSelect={setSelectedCategory} />
 
@@ -76,6 +70,9 @@ export default function Menu() {
                         src={`${prefix}/${currentImage}`}
                         alt={menu.title}
                         fill
+                        sizes="100vw"
+                        quality={75}
+                        priority={index === 0}
                         className="object-cover w-full h-full"
                       />
                       <div className="absolute bottom-0 w-full bg-black/60 text-white text-center p-2">
@@ -113,6 +110,9 @@ export default function Menu() {
                     src={`${prefix}/${currentImage}`}
                     alt={menu.title}
                     fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    quality={75}
+                    priority={index === 0}
                     className="object-cover w-full h-full transform group-hover:scale-105 transition duration-500"
                   />
 
