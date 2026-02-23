@@ -83,14 +83,7 @@ export default function Menu() {
                     </div>
 
                     {/* 뒷면 */}
-                    <div
-                      className="absolute inset-0 backface-hidden rotate-y-180 flex flex-col justify-center items-center text-white px-4 py-3"
-                      style={{
-                        backgroundImage: `url(${prefix}/background2.png)`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                      }}
-                    >
+                    <div className="absolute inset-0 backface-hidden rotate-y-180 flex flex-col justify-center items-center bg-neutral-900/60 text-white px-4 py-3">
                       <h3 className="text-lg font-bold mb-2">{menu.title}</h3>
                       <p
                         className="text-sm text-center"
@@ -192,13 +185,6 @@ const menus = [
     category: 'main-tofu',
   },
   {
-    title: '두부 스팸 프라이',
-    description: '들기름 두부구이, 계란반숙, 스팸튀김의 <br/><span style="color: #ef4444; font-weight: bold;">다양하게 먹는 삼합!</span>',
-    price: '20,000원',
-    image: 'main_doofu-두부스팸프라이.png',
-    category: 'main-tofu',
-  },
-  {
     title: '수제 두부김치',
     description: '<span style="color: #ef4444; font-weight: bold;">두툼한 수제 모두부</span>, <br/>우삼겹과 신김치를 볶아 곁들여 먹는 메뉴',
     price: '18,000원',
@@ -273,13 +259,6 @@ const menus = [
     description: '두부매니아라면 들기름에 구운 꼬수운 두부',
     price: '8,000원',
     image: ['side-들기름두부구이.png'],
-    category: 'side',
-  },
-  {
-    title: '참치크래커',
-    description: '양념한 캔참치를 크래커에 올려먹는 메뉴',
-    price: '12,000원',
-    image: ['side-참치크래커.png'],
     category: 'side',
   },
   // 세트 요리 -----------------------------------------------------------------------------

@@ -26,7 +26,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <section className="bg-white pb-40">
+    <section className=" pb-40">
       {/* Hero */}
       <Hero />
       

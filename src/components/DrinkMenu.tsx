@@ -92,13 +92,6 @@ const drinkMenus: DrinkMenu[] = [
     category: 'HIGHBAILL',
   },
   {
-    title: '파우스트',
-    description: '칵테일 중 도수가 높은 악마 소환술',
-    price: '10,000원',
-    image: '주류-파우스트.png',
-    category: 'HIGHBAILL',
-  },
-  {
     title: '카스',
     description: '',
     price: '5,000원',
@@ -117,13 +110,6 @@ const drinkMenus: DrinkMenu[] = [
     description: '수제맥주입문자, 부드러운 맛',
     price: '6,000원',
     image: '주류-호가든.png',
-    category: 'BEER',
-  },
-  {
-    title: '파울라너 헤페',
-    description: '독일맥주 중 밀과 과일의 깔끔함과 적당히 청량한 맛',
-    price: '7,000원',
-    image: '주류-파울라너헤페.png',
     category: 'BEER',
   },
   {
@@ -222,14 +208,6 @@ const drinkMenus: DrinkMenu[] = [
     badge: '',
   },
   {
-    title: '허니버터아몬드주',
-    description: '고소한 아몬드와 허니버터의 달콤함',
-    price: '6,000원 (750ml)',
-    image: '막걸리-허니버터아몬드주.png',
-    category: '전통주',
-    badge: '',
-  },
-  {
     title: '부자 프리미엄 막걸리',
     description: '식이섬유가 다량 함유된 건강 막걸리, 외국인에게 인기',
     price: '8,000원 (375ml)',
@@ -238,44 +216,12 @@ const drinkMenus: DrinkMenu[] = [
     badge: '',
   },
   {
-    title: '우곡생주 프리미엄 막걸리',
-    description: '쌀고유의 맛과 바디감, 적은 양조미',
-    price: '15,000원 (750ml)',
-    image: '막걸리-우곡생주프리미엄막걸리.png',
-    category: '전통주',
-    badge: 'BEST',
-  },
-  {
     title: '세번빛은 살맛나네 막걸리',
     description: '딥한 맛과 요거트 같은 부드러움, 목넘김 좋음',
     price: '9,000원 (750ml)',
     image: '막걸리-살맛나네 막걸리.png',
     category: '전통주',
     badge: 'HIT',
-  },
-  {
-    title: '너도바질 스파클링 막걸리',
-    description: '향긋한 바질 향, 탄산 있는 찐막 스파클링 막걸리',
-    price: '13,000원 (375ml)',
-    image: '막걸리-너도바질스파클링막걸리.png',
-    category: '전통주',
-    badge: 'HIT',
-  },
-  {
-    title: '화비',
-    description: '창쌀 / 누룩제이 / 구죽향',
-    price: '11,000원 (6.5도)',
-    image: '막걸리-화비.png',
-    category: '전통주',
-    badge: 'NEW',
-  },
-  {
-    title: '인더베럴',
-    description: '해피보이',
-    price: '13,000원 (10도) / 18,000원 (12도)',
-    image: '막걸리-인더베럴.png',
-    category: '전통주',
-    badge: 'NEW',
   }
 ];
 

@@ -129,9 +129,11 @@ export default function Lunch() {
                     <span className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs text-neutral-700">
                       세트 +4,000원
                     </span>
-                    <span className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs text-neutral-700">
-                      우삼겹 +3,000원
-                    </span>
+                    {item.id === "yongsdubugimbap" ? (
+                      <span className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs text-neutral-700">
+                        우삼겹 +3,000원
+                      </span>
+                    ) : null}
                   </div>
                 </div>
               </article>
@@ -191,6 +193,9 @@ export default function Lunch() {
             {/* 우삼겹 텍스트 */}
             <div className="rounded-2xl border border-neutral-200 bg-white p-4 sm:p-5">
               <p className="text-sm font-semibold">우삼겹 추가</p>
+              <p className="mt-2 text-xs text-neutral-500">
+                김밥 메뉴에만 추가 가능합니다.
+              </p>
               <p className="mt-3 text-base font-semibold">+{formatKRW(3000)}</p>
             </div>
           </div>

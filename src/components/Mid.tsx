@@ -62,104 +62,112 @@ export default function MidSection() {
       {/* lg 이상: 계단형 4열 레이아웃 (마지막 1장 제외, 4장만) */}
       <div className="hidden lg:block">
         <div className="grid grid-cols-4 gap-6">
-          {/* Row 1: 사진1 | 사진1설명 | 사진3 | 사진3설명 */}
-          <div className="col-start-1 col-end-2 row-start-1 row-end-2">
-            <div className="relative w-full overflow-hidden">
-              <div className="relative w-full aspect-[3/4]">
-                <Image
-                  src={stepData[0].src}
-                  alt={stepData[0].title}
-                  fill
-                  sizes="(min-width: 1024px) 22vw, 100vw"
-                  quality={80}
-                  className="object-contain"
+          {/* Row 1: (사진1+설명1) | (사진3+설명3) */}
+          <div className="col-span-2">
+            <div className="grid grid-cols-2 gap-6 items-start">
+              {/* 사진1 */}
+              <div className="relative w-full overflow-hidden">
+                <div className="relative w-full aspect-[3/4]">
+                  <Image
+                    src={stepData[0].src}
+                    alt={stepData[0].title}
+                    fill
+                    sizes="(min-width: 1024px) 44vw, 100vw"
+                    quality={80}
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+
+              {/* 설명1 */}
+              <div className="p-0">
+                <h3 className="text-xl font-semibold text-gray-900">{stepData[0].title}</h3>
+                <p
+                  className="mt-2 text-base leading-relaxed text-gray-600"
+                  dangerouslySetInnerHTML={{ __html: stepData[0].description }}
                 />
               </div>
             </div>
           </div>
 
-          <div className="col-start-2 col-end-3 row-start-1 row-end-2">
-            <div className="p-0">
-              <h3 className="text-xl font-semibold text-gray-900">{stepData[0].title}</h3>
-              <p
-                className="mt-2 text-base leading-relaxed text-gray-600"
-                dangerouslySetInnerHTML={{ __html: stepData[0].description }}
-              />
-            </div>
-          </div>
+          <div className="col-span-2">
+            <div className="grid grid-cols-2 gap-6 items-start">
+              {/* 사진3 */}
+              <div className="relative w-full overflow-hidden">
+                <div className="relative w-full aspect-[3/4]">
+                  <Image
+                    src={stepData[2].src}
+                    alt={stepData[2].title}
+                    fill
+                    sizes="(min-width: 1024px) 44vw, 100vw"
+                    quality={80}
+                    className="object-contain"
+                  />
+                </div>
+              </div>
 
-          <div className="col-start-3 col-end-4 row-start-1 row-end-2">
-            <div className="relative w-full overflow-hidden">
-              <div className="relative w-full aspect-[3/4]">
-                <Image
-                  src={stepData[2].src}
-                  alt={stepData[2].title}
-                  fill
-                  sizes="(min-width: 1024px) 22vw, 100vw"
-                  quality={80}
-                  className="object-contain"
+              {/* 설명3 */}
+              <div className="p-0">
+                <h3 className="text-xl font-semibold text-gray-900">{stepData[2].title}</h3>
+                <p
+                  className="mt-2 text-base leading-relaxed text-gray-600"
+                  dangerouslySetInnerHTML={{ __html: stepData[2].description }}
                 />
               </div>
             </div>
           </div>
 
-          <div className="col-start-4 col-end-5 row-start-1 row-end-2">
-            <div className="p-0">
-              <h3 className="text-xl font-semibold text-gray-900">{stepData[2].title}</h3>
-              <p
-                className="mt-2 text-base leading-relaxed text-gray-600"
-                dangerouslySetInnerHTML={{ __html: stepData[2].description }}
-              />
-            </div>
-          </div>
-
-          {/* Row 2: 사진2설명 | 사진2 | 사진4설명 | 사진4 */}
-          <div className="col-start-1 col-end-2 row-start-2 row-end-3">
-            <div className="p-0">
-              <h3 className="text-xl font-semibold text-gray-900">{stepData[1].title}</h3>
-              <p
-                className="mt-2 text-base leading-relaxed text-gray-600"
-                dangerouslySetInnerHTML={{ __html: stepData[1].description }}
-              />
-            </div>
-          </div>
-
-          <div className="col-start-2 col-end-3 row-start-2 row-end-3">
-            <div className="relative w-full overflow-hidden">
-              <div className="relative w-full aspect-[3/4]">
-                <Image
-                  src={stepData[1].src}
-                  alt={stepData[1].title}
-                  fill
-                  sizes="(min-width: 1024px) 22vw, 100vw"
-                  quality={80}
-                  className="object-contain"
+          {/* Row 2: (설명2+사진2) | (설명4+사진4) */}
+          <div className="col-span-2">
+            <div className="grid grid-cols-2 gap-6 items-start">
+              {/* 설명2 */}
+              <div className="p-0">
+                <h3 className="text-xl font-semibold text-gray-900">{stepData[1].title}</h3>
+                <p
+                  className="mt-2 text-base leading-relaxed text-gray-600"
+                  dangerouslySetInnerHTML={{ __html: stepData[1].description }}
                 />
+              </div>
+
+              {/* 사진2 */}
+              <div className="relative w-full overflow-hidden">
+                <div className="relative w-full aspect-[3/4]">
+                  <Image
+                    src={stepData[1].src}
+                    alt={stepData[1].title}
+                    fill
+                    sizes="(min-width: 1024px) 44vw, 100vw"
+                    quality={80}
+                    className="object-contain"
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="col-start-3 col-end-4 row-start-2 row-end-3">
-            <div className="p-0">
-              <h3 className="text-xl font-semibold text-gray-900">{stepData[3].title}</h3>
-              <p
-                className="mt-2 text-base leading-relaxed text-gray-600"
-                dangerouslySetInnerHTML={{ __html: stepData[3].description }}
-              />
-            </div>
-          </div>
-
-          <div className="col-start-4 col-end-5 row-start-2 row-end-3">
-            <div className="relative w-full overflow-hidden">
-              <div className="relative w-full aspect-[3/4]">
-                <Image
-                  src={stepData[3].src}
-                  alt={stepData[3].title}
-                  fill
-                  sizes="(min-width: 1024px) 22vw, 100vw"
-                  quality={80}
-                  className="object-contain"
+          <div className="col-span-2">
+            <div className="grid grid-cols-2 gap-6 items-start">
+              {/* 설명4 */}
+              <div className="p-0">
+                <h3 className="text-xl font-semibold text-gray-900">{stepData[3].title}</h3>
+                <p
+                  className="mt-2 text-base leading-relaxed text-gray-600"
+                  dangerouslySetInnerHTML={{ __html: stepData[3].description }}
                 />
+              </div>
+
+              {/* 사진4 */}
+              <div className="relative w-full overflow-hidden">
+                <div className="relative w-full aspect-[3/4]">
+                  <Image
+                    src={stepData[3].src}
+                    alt={stepData[3].title}
+                    fill
+                    sizes="(min-width: 1024px) 44vw, 100vw"
+                    quality={80}
+                    className="object-contain"
+                  />
+                </div>
               </div>
             </div>
           </div>
