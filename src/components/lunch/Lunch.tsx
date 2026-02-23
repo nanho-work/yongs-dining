@@ -103,9 +103,9 @@ export default function Lunch() {
                     src={item.image}
                     alt={item.title}
                     fill
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                    quality={75}
-                    priority={index === 0}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    quality={70}
+                    priority
                     style={{ objectPosition: item.objectPosition || "center" }}
                     className={(item.fit ?? "contain") === "contain" ? "object-contain" : "object-cover"}
                   />
@@ -151,7 +151,7 @@ export default function Lunch() {
                   src={SET_MENU_IMAGE}
                   alt="세트메뉴 구성"
                   fill
-                  sizes="(max-width: 640px) 100vw, 25vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   quality={80}
                   className="object-contain"
                 />
@@ -183,7 +183,7 @@ export default function Lunch() {
                   src={USAMGYEOP_IMAGE}
                   alt="우삼겹 토치"
                   fill
-                  sizes="(max-width: 640px) 100vw, 25vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   quality={80}
                   className="object-contain"
                 />
