@@ -19,11 +19,11 @@ type AddOn = {
 
 const LUNCH_ITEMS: LunchItem[] = [
   {
-    id: "deulkkaesundubujjigae",
-    title: "들깨순두부찌개",
-    price: 9000,
+    id: "ggotgeddeulkkaesundubu",
+    title: "꽃게들깨순두부",
+    price: 11000,
     description: "점심 한정",
-    image: "/lunch/lunch_sun.png",
+    image: "/lunch/lunch_ggodu.png",
     fit: "contain",
     objectPosition: "center",
   },

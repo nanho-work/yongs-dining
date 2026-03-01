@@ -191,12 +191,19 @@ const menus = [
     image: ['main_doofu-통두부김치.png'],
     category: 'main-tofu',
   },
+  {
+    title: '10센치두부완자',
+    description: '두툼하게 빚어낸 <span style="color: #ef4444; font-weight: bold;">10cm 수제 두부완자</span>!<br/>겉은 노릇하게, 속은 촉촉하게 구워내어<br/>고소한 풍미와 담백함을 동시에 느낄 수 있는 메뉴.<br/><br/>한입 베어 물면 퍼지는 육즙과 두부의 부드러움이<br/>술안주로도, 든든한 곁들이 메뉴로도 제격입니다.',
+    price: '20,000원',
+    image: ['main_doofu-10cm.png'],
+    category: 'main-tofu',
+  },
   // 그외 메인 요리 -----------------------------------------------------------------------------
   {
-    title: '부산 어묵탕',
-    description: '다양한 어묵, 우동, 물떡, 꽃게를 넣어 <br/><span style="color: #ef4444; font-weight: bold;">칼칼하고 시원한맛!</span>',
-    price: '23,000원 / 혼술 15,000원',
-    image: ['sub_main-부산어묵탕.png'],
+    title: '오징어초무침&대구식납작만두',
+    description: '새콤달콤한 <span style="color: #ef4444; font-weight: bold;">오징어초무침</span>에 <br/>담백하고 쫄깃한 <span style="color: #ef4444; font-weight: bold;">대구식 납작만두</span>를 곁들인 조합!<br/> <br/>입맛을 확 당기는 산뜻함과, 바삭하게 구운 만두의 식감이 <br/>술안주로도, 가볍게 곁들이기에도 딱 좋습니다.',
+    price: '23,000원',
+    image: ['sub_main-oh.png'],
     category: 'main-etc',
   },
   {
@@ -253,7 +260,6 @@ const menus = [
     image: ['side-해장묵사발.png'],
     category: 'side',
   },
-
   {
     title: '들기름두부구이',
     description: '두부매니아라면 들기름에 구운 꼬수운 두부',
