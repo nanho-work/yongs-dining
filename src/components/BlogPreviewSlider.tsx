@@ -1,13 +1,8 @@
 'use client'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination';
 import Image from 'next/image'
 import { Navigation, Autoplay } from 'swiper/modules'
-
-const prefix = ''
 
 type Blog = {
     title: string
@@ -85,9 +80,9 @@ export default function BlogPreviewSlider() {
                 {blogs.map((blog, idx) => (
                     <SwiperSlide key={idx}>
                         <a href={blog.url} target="_blank" rel="noopener noreferrer" className="block">
-                            <div className="aspect-[3/2] w-full overflow-hidden rounded-xl shadow-md hover:shadow-lg transition">
+                            <div className="relative aspect-[3/2] w-full overflow-hidden rounded-xl shadow-md hover:shadow-lg transition">
                                 <Image
-                                    src={`${prefix}${blog.src}`}
+                                    src={blog.src}
                                     alt={blog.title}
                                     fill
                                     className="object-cover"

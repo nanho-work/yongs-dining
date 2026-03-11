@@ -4,25 +4,20 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const prefix = ''
-
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="w-full bg-transparent transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6 py-8 sm:py-10 flex items-center justify-between relative">
-
-        {/* 좌측 문구 (모바일에선 숨김) */}
-        <div className="hidden sm:block text-sm sm:text-base text-red-400 font-bold">
-          쉐프가 요리하고, 분위기가 완성됩니다.
+    <header className="sticky top-0 z-50 w-full border-b border-white/30 bg-white/80 backdrop-blur">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-4 relative">
+        <div className="hidden md:block text-sm text-red-500 font-bold tracking-wide">
+          셰프가 요리하고, 분위기가 완성됩니다.
         </div>
 
-        {/* 로고 */}
-        <div className="absolute left-1/2 -translate-x-1/2 sm:static sm:translate-x-0">
+        <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
           <Link href="/" className="flex items-center justify-center">
             <Image
-              src={`${prefix}/logo.png`}
+              src="/logo.png"
               alt="용스다이닝포차 로고"
               width={160}
               height={48}
@@ -30,50 +25,78 @@ export default function Header() {
             />
           </Link>
         </div>
-        {/* 데스크탑 메뉴 (sm 이상에서만 보임) */}
-        <div className="hidden sm:flex space-x-6 text-base font-bold text-red-500">
-          <Link href="/lunch" className="hover:text-red-600">점심특선</Link>
-          <Link href="/menu" className="hover:text-red-600">메뉴</Link>
-          <Link href="/location" className="hover:text-red-600">매장안내</Link>
+
+        <nav className="hidden md:flex items-center gap-2 text-sm font-semibold text-red-600">
+          <Link href="/lunch" className="rounded-full px-4 py-2 transition-colors hover:bg-red-50">
+            점심특선
+          </Link>
+          <Link href="/menu" className="rounded-full px-4 py-2 transition-colors hover:bg-red-50">
+            메뉴
+          </Link>
+          <Link href="/location" className="rounded-full px-4 py-2 transition-colors hover:bg-red-50">
+            매장안내
+          </Link>
+          <a
+            href="https://open.kakao.com/o/sgozNuEh"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-1 rounded-full bg-red-500 px-4 py-2 text-white transition-colors hover:bg-red-600"
+          >
+            예약하기
+          </a>
+        </nav>
+
+        <div className="md:hidden flex justify-end ml-auto">
+          <button
+            type="button"
+            aria-label="메뉴 열기"
+            aria-controls="mobile-menu"
+            aria-expanded={isMenuOpen}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-red-200 bg-white text-red-500 text-xl"
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+          >
+            <span aria-hidden>{isMenuOpen ? '×' : '☰'}</span>
+          </button>
         </div>
 
-        {/* 햄버거 버튼 (모바일) */}
-        <div className="sm:hidden flex justify-end ml-auto">
-          <button
-            className="text-red-400 text-2xl"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+        {isMenuOpen && (
+          <nav
+            id="mobile-menu"
+            className="absolute top-[100%] left-4 right-4 rounded-2xl border border-red-100 bg-white/95 shadow-lg z-40 py-3 px-3 md:hidden"
           >
-            ☰
-          </button>
-
-          {/* 클릭 시 나타나는 메뉴 */}
-          {isMenuOpen && (
-            <div className="absolute top-full left-0 w-full bg-white shadow-md z-40 text-center py-4">
+            <div className="flex flex-col gap-1 text-center">
               <Link
                 href="/lunch"
-                className="block py-2 text-red-500 font-bold hover:text-red-600"
+                className="block rounded-lg py-2 text-red-600 font-semibold hover:bg-red-50"
                 onClick={() => setIsMenuOpen(false)}
               >
-                런치
+                점심특선
               </Link>
               <Link
                 href="/menu"
-                className="block py-2 text-red-500 font-bold hover:text-red-600"
+                className="block rounded-lg py-2 text-red-600 font-semibold hover:bg-red-50"
                 onClick={() => setIsMenuOpen(false)}
               >
                 메뉴
               </Link>
               <Link
                 href="/location"
-                className="block py-2 text-red-500 font-bold hover:text-red-600"
+                className="block rounded-lg py-2 text-red-600 font-semibold hover:bg-red-50"
                 onClick={() => setIsMenuOpen(false)}
               >
                 매장안내
               </Link>
+              <a
+                href="https://open.kakao.com/o/sgozNuEh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 block rounded-lg bg-red-500 py-2 text-white font-semibold hover:bg-red-600"
+              >
+                카카오 예약하기
+              </a>
             </div>
-          )}
-        </div>
-
+          </nav>
+        )}
       </div>
     </header>
   )

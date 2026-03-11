@@ -20,13 +20,27 @@
 
 body {
   font-family: 'NanumGothic', sans-serif;
-  background-color: #f2e2d8;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.55), transparent 40%),
+    radial-gradient(circle at 100% 0%, rgba(246, 208, 187, 0.45), transparent 36%),
+    linear-gradient(180deg, #f7efe8 0%, #f4e7de 45%, #f2e2d8 100%);
   color: #111827;
+  line-height: 1.5;
 }
 
 /* ✅ 히어로 섹션 전용 폰트 클래스 */
 .hero-font {
   font-family: 'Noto Sans KR', serif;
+}
+
+::selection {
+  background: rgba(239, 68, 68, 0.22);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #ef4444;
+  outline-offset: 2px;
 }
 .perspective {
   perspective: 1000px;

@@ -10,13 +10,6 @@ type LunchItem = {
   objectPosition?: string;
 };
 
-type AddOn = {
-  id: string;
-  title: string;
-  price: number;
-  description?: string;
-};
-
 const LUNCH_ITEMS: LunchItem[] = [
   {
     id: "ggotgeddeulkkaesundubu",
@@ -56,14 +49,6 @@ const LUNCH_ITEMS: LunchItem[] = [
   },
 ];
 
-const ADD_ONS: AddOn[] = [
-  {
-    id: "usamgyeop",
-    title: "우삼겹 추가",
-    price: 3000,
-  },
-];
-
 const SET_MENU_IMAGE = "/lunch/lunch_set_combo.png";
 const USAMGYEOP_IMAGE = "/lunch/lunch_usamgyeop_torch.png";
 
@@ -74,7 +59,7 @@ function formatKRW(value: number) {
 export default function Lunch() {
   return (
     <section className="w-full">
-      <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:py-12">
+      <div className="mx-auto w-full max-w-6xl py-2 sm:py-4">
         <header className="mb-6 sm:mb-8">
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
             <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">용스점심특선</h1>
@@ -91,7 +76,7 @@ export default function Lunch() {
           <h2 className="mb-4 text-lg font-semibold">메뉴</h2>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {LUNCH_ITEMS.map((item, index) => (
+            {LUNCH_ITEMS.map((item) => (
               <article
                 key={item.id}
                 className="group overflow-hidden rounded-2xl border border-neutral-200 bg-white"

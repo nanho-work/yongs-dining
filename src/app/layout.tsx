@@ -1,11 +1,15 @@
 // src/app/layout.tsx
 import './globals.css'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import FloatingButton from '@/components/FloatingButton'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://yongs-dining.com'),
   title: '용스다이닝포차 | 분위기 좋은 감성포차',
   description: '모란역에서 가장 따뜻한 감성 술집, 용스다이닝포차에서 특별한 하루를 즐겨보세요.',
   keywords: ['용스', '두부맛집', '두부카세', '용스다이닝포차', '용스다이닝', '감성포차', '모란역맛집', '다이닝', '술집', '포차', '분위기좋은포차', '소울푸드', '데이트맛집', '분위기좋은술집'],
@@ -20,29 +24,35 @@ export const metadata: Metadata = {
 
   // canonical URL 설정 (중복 방지)
   alternates: {
-    canonical: 'https://yongsdining.com',
+    canonical: 'https://yongs-dining.com',
   },
 
   // Open Graph (카카오톡/페북 공유 시)
   openGraph: {
     title: '용스다이닝포차 | 따뜻한 감성 술집',
     description: '빈티지 인테리어와 소울푸드, 그리고 좋은 사람들과 함께하는 공간',
-    url: 'https://yongsdining.com',
+    url: 'https://yongs-dining.com',
     siteName: '용스다이닝포차',
     images: [
       {
-        url: '/맨하탄카나페.png',
+        url: '/social.png',
         width: 1200,
         height: 630,
-        alt: '용스다이닝포차 매장 내부',
+        alt: '용스다이닝포차 대표 이미지',
       },
     ],
     locale: 'ko_KR',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: '용스다이닝포차 | 따뜻한 감성 술집',
+    description: '빈티지 인테리어와 소울푸드, 그리고 좋은 사람들과 함께하는 공간',
+    images: ['/social.png'],
+  },
 
   // 작성자 정보 (선택)
-  authors: [{ name: 'YongsDining', url: 'https://yongsdining.com' }],
+  authors: [{ name: 'YongsDining', url: 'https://yongs-dining.com' }],
   creator: 'YongsDining',
   publisher: 'YongsDining',
 }
@@ -54,13 +64,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col antialiased">
+        <a
+          href="#content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:font-semibold focus:text-neutral-900"
+        >
+          본문으로 건너뛰기
+        </a>
         <Header />
-        <main className="flex-grow pt-4">{children}</main>
+        <main id="content" className="flex-grow pt-2 sm:pt-3">{children}</main>
         <FloatingButton />
         <Footer />
       </body>
-      
     </html>
   )
 }

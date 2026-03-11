@@ -1,39 +1,44 @@
 export default function Footer() {
   return (
-    <footer className="w-full  text-gray-600 border-t border-gray-200 text-sm py-12 px-12">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        
-        {/* 브랜드 소개 */}
+    <footer className="w-full border-t border-stone-300/80 bg-[#f5ece5] text-gray-700 text-sm py-12 px-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         <div>
-          <h3 className="font-semibold text-gray-800 mb-2">용스다이닝포차</h3>
-          <p>모란역 도보 5분 거리<br />한우전골과 교자가 맛있는 포차</p>
+          <h3 className="font-semibold text-gray-900 mb-2">용스다이닝포차</h3>
+          <p className="leading-relaxed">
+            모란역 도보 5분 거리
+            <br />
+            한우전골과 교자가 맛있는 감성포차
+          </p>
         </div>
 
-        {/* 연락처 */}
         <div>
-          <h3 className="font-semibold text-gray-800 mb-2">Contact</h3>
-          <p>070 8287 0377</p>
-          <p>경기 성남시 중원구 제일로63번길 29 102호</p>
+          <h3 className="font-semibold text-gray-900 mb-2">Contact</h3>
+          <p>
+            <a className="hover:underline" href="tel:07082870377">
+              070-8287-0377
+            </a>
+          </p>
+          <p className="mt-1 leading-relaxed">
+            경기 성남시 중원구 제일로63번길 29 102호
+          </p>
         </div>
 
-        {/* 저작권 및 제작사 */}
         <div>
-          <h3 className="font-semibold text-gray-800 mb-2">Website</h3>
+          <h3 className="font-semibold text-gray-900 mb-2">Website</h3>
           <p>ⓒ {new Date().getFullYear()} Yongs Dining</p>
           <p>
-            Website by{" "}
+            Website by{' '}
             <a
               href="https://laoncode.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-gray-800 font-medium"
+              className="underline hover:text-gray-900 font-medium"
             >
               LaonCode
             </a>
           </p>
         </div>
-
       </div>
     </footer>
-  );
+  )
 }

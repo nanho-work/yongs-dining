@@ -2,17 +2,14 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-
-const prefix = ''
+import Link from 'next/link'
 
 const images = [
-  `${prefix}/main_doofu-리얼한우두부전골.png`,
-  `${prefix}/side-맨하탄카나페.png`,
-  `${prefix}/main_doofu-수제두부보쌈.jpeg`,
-  `${prefix}/side-호떡아이스크림.png`,
+  '/main_doofu-리얼한우두부전골.png',
+  '/side-맨하탄카나페.png',
+  '/main_doofu-수제두부보쌈.jpeg',
+  '/side-호떡아이스크림.png',
 ]
-
-
 
 export default function HeroCarousel() {
   const [index, setIndex] = useState(0)
@@ -26,7 +23,6 @@ export default function HeroCarousel() {
 
   return (
     <div className="relative max-w-6xl h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden mx-auto">
-      {/* 이미지들 */}
       {images.map((src, i) => (
         <div
           key={src}
@@ -42,21 +38,35 @@ export default function HeroCarousel() {
         </div>
       ))}
 
-      {/* 👇 이미지 위에 표시될 문구 영역 */}
-      <div className="absolute inset-0 z-20 flex items-start justify-start px-6 sm:px-10 pt-10 sm:pt-16">
-        <div className="text-white drop-shadow-lg">
-          <p className="text-2xl sm:text-xl md:text-2xl text-red-600 font-extrabold mb-2 drop-shadow-[0_0_4px_white]">
+      <div className="absolute inset-0 z-20 bg-gradient-to-r from-black/55 via-black/25 to-black/5" />
+
+      <div className="absolute inset-0 z-30 flex items-start justify-start px-6 sm:px-10 pt-10 sm:pt-16">
+        <div className="max-w-md text-white drop-shadow-lg">
+          <p className="text-xl sm:text-2xl md:text-3xl text-red-300 font-extrabold mb-2">
             용스 다이닝 포차
           </p>
-          <p className="text-lg sm:text-xl md:text-2xl text-white-600 font-extrabold mb-2 drop-shadow-[0_0_4px_red]">
+          <p className="text-base sm:text-lg md:text-2xl text-white font-extrabold mb-4 leading-snug">
             신선한 재료,<br />
-            전문 쉐프의 요리로<br />
+            전문 셰프의 요리로<br />
             잊지 못할 경험을 선사합니다.
           </p>
+          <div className="flex flex-wrap gap-2">
+            <Link
+              href="/menu"
+              className="rounded-full bg-red-500 px-4 py-2 text-sm font-semibold text-white hover:bg-red-600"
+            >
+              메뉴 보기
+            </Link>
+            <Link
+              href="/location"
+              className="rounded-full border border-white/70 bg-white/15 px-4 py-2 text-sm font-semibold text-white hover:bg-white/25"
+            >
+              오시는 길
+            </Link>
+          </div>
         </div>
       </div>
 
-      {/* 인디케이터 */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex space-x-2">
         {images.map((_, i) => (
           <div

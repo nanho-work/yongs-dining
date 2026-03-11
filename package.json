@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "clean": "rm -rf .next out",
     "dev": "next dev",
+    "dev:clean": "npm run clean && next dev",
+    "dev:nocache": "NEXT_DISABLE_WEBPACK_CACHE=1 next dev",
     "build": "next build",
     "deploy": "npm run build && git add out && git commit -m 'Deploy' && git subtree push --prefix out origin gh-pages",
     "start": "next start",
