@@ -87,7 +87,7 @@ export const MENU_ITEMS: MenuItem[] = [
     title: '목살 갈비 샐러드(270g)',
     description: '"최고의요리비결" 신효섭 셰프의 특제소스\n불향과 새콤달콤 참나물 무침',
     price: '20,000원',
-    images: ['sub_main-목살갈비샐러드.png'],
+    images: ['sub_main-pork-rib-salad.png'],
     category: 'main-etc',
   },
   {
@@ -95,7 +95,7 @@ export const MENU_ITEMS: MenuItem[] = [
     title: '홍콩눈꽃교자',
     description: '겉바속촉 교자 + 치즈 풍미',
     price: '15,000원',
-    images: ['sub_main-홍콩눈꽃교자.png'],
+    images: ['sub_main-hongkong-gyoza.png'],
     badge: 'HIT',
     category: 'main-etc',
   },
@@ -104,7 +104,7 @@ export const MENU_ITEMS: MenuItem[] = [
     title: '대포항 누룽지 오징어순대',
     description: '바삭하게 구운 오징어순대와 양배추 초무침',
     price: '25,000원',
-    images: ['sub_main-대포항오징어누룽지순대.png'],
+    images: ['sub_main-squid-sundae-nurungji.png'],
     category: 'main-etc',
   },
   {
@@ -112,7 +112,7 @@ export const MENU_ITEMS: MenuItem[] = [
     title: '강원도빠삭먹태구이',
     description: '고성 먹태를 빠삭하게 구운 애주가 필수 안주',
     price: '16,000원',
-    images: ['sub_main-강원도빠삭먹태구이.png'],
+    images: ['sub_main-gangwon-dried-pollack.png'],
     category: 'main-etc',
   },
   {
@@ -120,7 +120,7 @@ export const MENU_ITEMS: MenuItem[] = [
     title: '꿀호떡 아이스크림',
     description: '호떡 + 바닐라 아이스크림 + 시나몬 파우더 (2pc)',
     price: '9,000원',
-    images: ['side-호떡아이스크림.png'],
+    images: ['side-hotteok-icecream.png'],
     badge: 'BEST',
     category: 'side',
   },
@@ -129,7 +129,7 @@ export const MENU_ITEMS: MenuItem[] = [
     title: '맨하탄카나페',
     description: '크래커, 크림치즈, 블루베리, 꿀의 상큼한 조합',
     price: '10,000원',
-    images: ['side-맨하탄카나페.png'],
+    images: ['side-manhattan-canape.png'],
     category: 'side',
   },
   {
@@ -137,7 +137,7 @@ export const MENU_ITEMS: MenuItem[] = [
     title: '해장묵사발',
     description: '수제 도토리묵에 살얼음 동동 육수',
     price: '9,000원',
-    images: ['side-해장묵사발.png'],
+    images: ['side-haejang-muksabal.png'],
     category: 'side',
   },
   {
@@ -145,7 +145,7 @@ export const MENU_ITEMS: MenuItem[] = [
     title: '들기름두부구이',
     description: '들기름에 구운 고소한 두부',
     price: '8,000원',
-    images: ['side-들기름두부구이.png'],
+    images: ['side-perilla-tofu-grill.png'],
     category: 'side',
   },
   {

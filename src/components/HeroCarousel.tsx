@@ -6,9 +6,9 @@ import Link from 'next/link'
 
 const images = [
   '/main_doofu-리얼한우두부전골.png',
-  '/side-맨하탄카나페.png',
+  '/side-manhattan-canape.png',
   '/main_doofu-수제두부보쌈.jpeg',
-  '/side-호떡아이스크림.png',
+  '/side-hotteok-icecream.png',
 ]
 
 export default function HeroCarousel() {

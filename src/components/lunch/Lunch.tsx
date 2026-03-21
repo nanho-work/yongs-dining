@@ -76,7 +76,7 @@ export default function Lunch() {
           <h2 className="mb-4 text-lg font-semibold">메뉴</h2>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {LUNCH_ITEMS.map((item) => (
+            {LUNCH_ITEMS.map((item, index) => (
               <article
                 key={item.id}
                 className="group overflow-hidden rounded-2xl border border-neutral-200 bg-white"
@@ -90,7 +90,7 @@ export default function Lunch() {
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     quality={70}
-                    priority
+                    priority={index === 0}
                     style={{ objectPosition: item.objectPosition || "center" }}
                     className={(item.fit ?? "contain") === "contain" ? "object-contain" : "object-cover"}
                   />
