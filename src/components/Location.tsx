@@ -9,10 +9,10 @@ const RESERVE_URL = 'https://open.kakao.com/o/sgozNuEh'
 
 const businessHours = [
   { day: '평일', hours: '18:00 ~ 01:00' },
-  { day: '주말', hours: '17:00 ~ 03:00' },
+  { day: '주말', hours: '17:00 ~ 02:00' },
 ]
 
-const lunchHours = [{ day: '목요일 ~ 일요일', hours: '12:00 ~ 14:00' }]
+const lunchHours = [{ day: '목요일 ~ 일요일', hours: '12:00 ~ 15:00' }]
 
 const parkingOptions = ['모란복지관 지하주차장', '모란시장 공영주차장', '중원구청 주차장']
 

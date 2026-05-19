@@ -2,7 +2,7 @@ import Lunch from "@/components/lunch/Lunch";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "용스다이닝포차 점심특선 | 목-일 12:00-14:30",
+  title: "용스다이닝포차 점심특선 | 목-일 12:00-15:00",
   description: "용스다이닝포차 점심특선 메뉴와 세트 구성을 확인해보세요.",
   alternates: {
     canonical: "https://yongs-dining.com/lunch",

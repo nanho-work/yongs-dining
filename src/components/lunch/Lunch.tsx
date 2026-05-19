@@ -67,7 +67,7 @@ export default function Lunch() {
             <span className="text-sm sm:text-base text-neutral-300">·</span>
           </div>
           <p className="mt-2 ml-7 text-sm sm:text-base font-semibold text-neutral-700">
-  목–일 12:00–14:30
+  목–일 12:00–15:00
 </p>
         </header>
 
