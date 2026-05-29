@@ -1,8 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useAutoCarousel } from '@/hooks/useAutoCarousel'
 
 const images = [
   '/main_doofu-리얼한우두부전골.png',
@@ -12,14 +12,7 @@ const images = [
 ]
 
 export default function HeroCarousel() {
-  const [index, setIndex] = useState(0)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length)
-    }, 4000)
-    return () => clearInterval(timer)
-  }, [])
+  const { index } = useAutoCarousel({ length: images.length, interval: 4000 })
 
   return (
     <div className="relative max-w-6xl h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden mx-auto">

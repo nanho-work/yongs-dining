@@ -1,3 +1,5 @@
+import { STORE_INFO } from '@/constants/store'
+
 export default function Footer() {
   return (
     <footer className="w-full border-t border-stone-300/80 bg-[#f5ece5] text-gray-700 text-sm py-12 px-6">
@@ -14,12 +16,12 @@ export default function Footer() {
         <div>
           <h3 className="font-semibold text-gray-900 mb-2">Contact</h3>
           <p>
-            <a className="hover:underline" href="tel:07082870377">
-              070-8287-0377
+            <a className="hover:underline" href={`tel:${STORE_INFO.phoneHref}`}>
+              {STORE_INFO.phone}
             </a>
           </p>
           <p className="mt-1 leading-relaxed">
-            경기 성남시 중원구 제일로63번길 29 102호
+            {STORE_INFO.address}
           </p>
         </div>
 

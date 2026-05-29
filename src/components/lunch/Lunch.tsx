@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { formatKRW } from "@/lib/text";
 
 type LunchItem = {
   id: string;
@@ -51,10 +52,6 @@ const LUNCH_ITEMS: LunchItem[] = [
 
 const SET_MENU_IMAGE = "/lunch/lunch_set_combo.png";
 const USAMGYEOP_IMAGE = "/lunch/lunch_usamgyeop_torch.png";
-
-function formatKRW(value: number) {
-  return value.toLocaleString("ko-KR") + "원";
-}
 
 export default function Lunch() {
   return (

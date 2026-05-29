@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Lottie from 'lottie-react';
 import instagramAnim from '@/animations/instagram.json';
+import { STORE_LINKS } from '@/constants/store';
 
 const FloatingButton = () => {
   const handleScrollTop = () => {
@@ -15,7 +16,7 @@ const FloatingButton = () => {
       <div className="flex flex-col items-center">
         <span className="text-[11px] text-gray-800 font-semibold mb-1">예약하기</span>
         <a
-          href="https://open.kakao.com/o/sgozNuEh"
+          href={STORE_LINKS.reservation}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="카카오톡 예약 링크 열기"
@@ -32,7 +33,7 @@ const FloatingButton = () => {
       </div>
 
       <a
-        href="https://www.instagram.com/yongs_dining_official/?igsh=NW9vdjV2ODVqdDAw#"
+        href={STORE_LINKS.instagram}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="인스타그램 페이지 열기"

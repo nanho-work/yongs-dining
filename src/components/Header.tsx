@@ -1,11 +1,13 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Menu, X } from 'lucide-react'
+import { STORE_LINKS } from '@/constants/store'
+import { useDisclosure } from '@/hooks/useDisclosure'
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { isOpen: isMenuOpen, close: closeMenu, toggle: toggleMenu } = useDisclosure(false)
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/30 bg-white/80 backdrop-blur">
@@ -37,7 +39,7 @@ export default function Header() {
             매장안내
           </Link>
           <a
-            href="https://open.kakao.com/o/sgozNuEh"
+            href={STORE_LINKS.reservation}
             target="_blank"
             rel="noopener noreferrer"
             className="ml-1 rounded-full bg-red-500 px-4 py-2 text-white transition-colors hover:bg-red-600"
@@ -53,9 +55,9 @@ export default function Header() {
             aria-controls="mobile-menu"
             aria-expanded={isMenuOpen}
             className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-red-200 bg-white text-red-500 text-xl"
-            onClick={() => setIsMenuOpen((prev) => !prev)}
+            onClick={toggleMenu}
           >
-            <span aria-hidden>{isMenuOpen ? '×' : '☰'}</span>
+            {isMenuOpen ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
           </button>
         </div>
 
@@ -68,26 +70,26 @@ export default function Header() {
               <Link
                 href="/lunch"
                 className="block rounded-lg py-2 text-red-600 font-semibold hover:bg-red-50"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={closeMenu}
               >
                 점심특선
               </Link>
               <Link
                 href="/menu"
                 className="block rounded-lg py-2 text-red-600 font-semibold hover:bg-red-50"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={closeMenu}
               >
                 메뉴
               </Link>
               <Link
                 href="/location"
                 className="block rounded-lg py-2 text-red-600 font-semibold hover:bg-red-50"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={closeMenu}
               >
                 매장안내
               </Link>
               <a
-                href="https://open.kakao.com/o/sgozNuEh"
+                href={STORE_LINKS.reservation}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 block rounded-lg bg-red-500 py-2 text-white font-semibold hover:bg-red-600"

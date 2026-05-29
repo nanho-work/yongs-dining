@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useEffect, useRef } from 'react'
+import { htmlToPlainText } from '@/lib/text'
 
 const imageData = [
   {
@@ -32,14 +33,6 @@ const imageData = [
 ];
 
 const stepData = imageData.slice(0, 4)
-
-function htmlToPlainText(raw: string) {
-  return raw
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<[^>]+>/g, '')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim()
-}
 
 export default function MidSection() {
   const refs = useRef<(HTMLDivElement | null)[]>([])

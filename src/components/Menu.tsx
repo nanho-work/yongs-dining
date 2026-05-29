@@ -5,10 +5,7 @@ import { useEffect, useMemo, useState } from 'react'
 import DrinkMenu from './DrinkMenu'
 import MenuTabs, { type MenuTabId } from './MenuTabs'
 import { MENU_ITEMS } from '@/data/menuData'
-
-function getPrimaryImage(images: string[]) {
-  return images.length > 0 ? images[0] : 'coming-soon.png'
-}
+import { getPrimaryMenuImage, isMenuImagePlaceholder } from '@/lib/menu'
 
 export default function Menu() {
   const [selectedCategory, setSelectedCategory] = useState<MenuTabId>('all')
@@ -42,9 +39,9 @@ export default function Menu() {
           className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8"
         >
           {filteredMenus.map((menu, index) => {
-            const image = getPrimaryImage(menu.images)
+            const image = getPrimaryMenuImage(menu.images)
             const isFlipped = flippedId === menu.id
-            const isPlaceholder = image === 'coming-soon.png'
+            const isPlaceholder = isMenuImagePlaceholder(image)
 
             return (
               <article

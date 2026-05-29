@@ -1,20 +1,6 @@
 import Image from 'next/image'
-
-const STORE_ADDRESS = '경기 성남시 중원구 제일로63번길 29 102호'
-const STORE_PHONE = '070-8287-0377'
-const STORE_PHONE_LINK = '07082870377'
-const MAP_URL =
-  'https://www.google.com/maps/search/?api=1&query=%EA%B2%BD%EA%B8%B0%20%EC%84%B1%EB%82%A8%EC%8B%9C%20%EC%A4%91%EC%9B%90%EA%B5%AC%20%EC%A0%9C%EC%9D%BC%EB%A1%9C63%EB%B2%88%EA%B8%B8%2029'
-const RESERVE_URL = 'https://open.kakao.com/o/sgozNuEh'
-
-const businessHours = [
-  { day: '평일', hours: '18:00 ~ 01:00' },
-  { day: '주말', hours: '17:00 ~ 02:00' },
-]
-
-const lunchHours = [{ day: '목요일 ~ 일요일', hours: '12:00 ~ 15:00' }]
-
-const parkingOptions = ['모란복지관 지하주차장', '모란시장 공영주차장', '중원구청 주차장']
+import { MapPin, MessageCircle, Phone } from 'lucide-react'
+import { PARKING_OPTIONS, STORE_HOURS, STORE_INFO, STORE_LINKS } from '@/constants/store'
 
 export default function Location() {
   return (
@@ -28,25 +14,28 @@ export default function Location() {
 
         <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2">
           <a
-            href={`tel:${STORE_PHONE_LINK}`}
-            className="inline-flex justify-center items-center rounded-xl bg-red-500 px-4 py-3 text-sm font-semibold text-white hover:bg-red-600"
+            href={`tel:${STORE_INFO.phoneHref}`}
+            className="inline-flex justify-center items-center gap-2 rounded-xl bg-red-500 px-4 py-3 text-sm font-semibold text-white hover:bg-red-600"
           >
+            <Phone size={16} aria-hidden />
             전화하기
           </a>
           <a
-            href={MAP_URL}
+            href={STORE_LINKS.map}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex justify-center items-center rounded-xl border border-red-200 bg-white px-4 py-3 text-sm font-semibold text-red-600 hover:bg-red-50"
+            className="inline-flex justify-center items-center gap-2 rounded-xl border border-red-200 bg-white px-4 py-3 text-sm font-semibold text-red-600 hover:bg-red-50"
           >
+            <MapPin size={16} aria-hidden />
             길찾기
           </a>
           <a
-            href={RESERVE_URL}
+            href={STORE_LINKS.reservation}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex justify-center items-center rounded-xl border border-amber-300 bg-amber-100 px-4 py-3 text-sm font-semibold text-amber-900 hover:bg-amber-200"
+            className="inline-flex justify-center items-center gap-2 rounded-xl border border-amber-300 bg-amber-100 px-4 py-3 text-sm font-semibold text-amber-900 hover:bg-amber-200"
           >
+            <MessageCircle size={16} aria-hidden />
             카카오 예약
           </a>
         </div>
@@ -66,13 +55,13 @@ export default function Location() {
         <div className="space-y-4 text-sm text-gray-800">
           <section className="rounded-2xl border border-gray-200 bg-white p-4 sm:p-5">
             <h3 className="text-base font-bold text-neutral-900">위치</h3>
-            <p className="mt-2 text-sm sm:text-base leading-relaxed">{STORE_ADDRESS}</p>
+            <p className="mt-2 text-sm sm:text-base leading-relaxed">{STORE_INFO.address}</p>
           </section>
 
           <section className="rounded-2xl border border-gray-200 bg-white p-4 sm:p-5">
             <h3 className="text-base font-bold text-neutral-900">영업시간</h3>
             <ul className="mt-3 space-y-2">
-              {businessHours.map((item) => (
+              {STORE_HOURS.business.map((item) => (
                 <li
                   key={item.day}
                   className="flex items-center justify-between rounded-lg bg-gray-50 px-3 py-2"
@@ -82,13 +71,13 @@ export default function Location() {
                 </li>
               ))}
             </ul>
-            <p className="text-xs text-gray-500 mt-3">※ 평일 12시 이후는 시간 변동 가능 / 전화 문의</p>
+            <p className="text-xs text-gray-500 mt-3">※ {STORE_HOURS.note}</p>
           </section>
 
           <section className="rounded-2xl border border-gray-200 bg-white p-4 sm:p-5">
             <h3 className="text-base font-bold text-neutral-900">점심특선</h3>
             <ul className="mt-3 space-y-2">
-              {lunchHours.map((item) => (
+              {STORE_HOURS.lunch.map((item) => (
                 <li
                   key={item.day}
                   className="flex items-center justify-between rounded-lg bg-amber-50 px-3 py-2"
@@ -103,7 +92,7 @@ export default function Location() {
           <section className="rounded-2xl border border-gray-200 bg-white p-4 sm:p-5">
             <h3 className="text-base font-bold text-neutral-900">주차</h3>
             <ul className="mt-2 space-y-1 text-sm sm:text-base">
-              {parkingOptions.map((item) => (
+              {PARKING_OPTIONS.map((item) => (
                 <li key={item}>• {item}</li>
               ))}
             </ul>
@@ -115,11 +104,11 @@ export default function Location() {
             <p className="mt-2">
               전화:
               {' '}
-              <a href={`tel:${STORE_PHONE_LINK}`} className="font-semibold text-red-600 hover:underline">
-                {STORE_PHONE}
+              <a href={`tel:${STORE_INFO.phoneHref}`} className="font-semibold text-red-600 hover:underline">
+                {STORE_INFO.phone}
               </a>
             </p>
-            <p className="mt-1 text-sm sm:text-base">좌석: 1인석 / 입식 / 연인석</p>
+            <p className="mt-1 text-sm sm:text-base">좌석: {STORE_INFO.seats}</p>
           </section>
         </div>
       </div>
