@@ -1,3 +1,5 @@
+export const SITE_URL = 'https://www.yongs-dining.com'
+
 export const STORE_INFO = {
   name: '용스다이닝포차',
   tagline: '셰프가 만드는 두부요리와 술 한잔',

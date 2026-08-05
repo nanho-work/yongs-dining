@@ -18,15 +18,25 @@ export function SectionHeader({
   return (
     <header className={cn('max-w-2xl', align === 'center' && 'mx-auto text-center', className)}>
       {eyebrow ? (
-        <p className="text-xs font-bold uppercase tracking-[0.16em] text-red-600">
-          {eyebrow}
-        </p>
+        <div
+          className={cn(
+            'flex items-center gap-3',
+            align === 'center' && 'justify-center'
+          )}
+        >
+          <span aria-hidden className="h-px w-7 bg-[#a92e26]" />
+          <p className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.22em] text-[#92271f]">
+            <span aria-hidden className="h-1.5 w-1.5 rotate-45 bg-[#c89249]" />
+            {eyebrow}
+          </p>
+          <span aria-hidden className="h-px w-7 border-t border-dashed border-[#a92e26]/60" />
+        </div>
       ) : null}
-      <h2 className="mt-2 text-2xl font-bold tracking-tight text-neutral-950 sm:text-3xl">
+      <h2 className="font-display mt-3 break-keep text-2xl font-black leading-tight tracking-[-0.035em] text-[#1f1814] sm:text-4xl">
         {title}
       </h2>
       {description ? (
-        <p className="mt-3 text-sm leading-6 text-neutral-600 sm:text-base">
+        <p className="mt-4 break-keep text-sm leading-6 text-[#5e5047] sm:text-base sm:leading-7">
           {description}
         </p>
       ) : null}
