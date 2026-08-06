@@ -1,20 +1,9 @@
+@import url('https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumGothic.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --paper: #f2e4d6;
-  --paper-soft: #faf4ec;
-  --paper-deep: #e8d3c1;
-  --ink: #211914;
-  --ink-soft: #6f6157;
-  --lacquer: #b92b20;
-  --lacquer-dark: #7d211b;
-  --amber: #d49a45;
-  --line: rgba(58, 42, 32, 0.2);
-  --site-header-height: 74px;
-  --menu-sticky-offset: 152px;
-}
 
 @keyframes slide-loop {
   0% {
@@ -30,117 +19,27 @@
 }
 
 body {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    'Apple SD Gothic Neo',
-    'Noto Sans KR',
-    'Malgun Gothic',
-    'Segoe UI',
-    sans-serif;
+  font-family: 'NanumGothic', sans-serif;
   background:
-    radial-gradient(rgba(72, 44, 30, 0.045) 0.55px, transparent 0.7px) 0 0 / 5px 5px,
-    radial-gradient(circle at 8% 0%, rgba(255, 251, 244, 0.9), transparent 30rem),
-    radial-gradient(circle at 92% 12%, rgba(198, 75, 52, 0.1), transparent 27rem),
-    linear-gradient(180deg, var(--paper-soft) 0%, var(--paper) 48%, #edddcf 100%);
-  color: var(--ink);
+    radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.55), transparent 40%),
+    radial-gradient(circle at 100% 0%, rgba(246, 208, 187, 0.45), transparent 36%),
+    linear-gradient(180deg, #f7efe8 0%, #f4e7de 45%, #f2e2d8 100%);
+  color: #111827;
   line-height: 1.5;
-  text-rendering: optimizeLegibility;
 }
 
+/* ✅ 히어로 섹션 전용 폰트 클래스 */
 .hero-font {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    'Apple SD Gothic Neo',
-    'Noto Sans KR',
-    'Malgun Gothic',
-    sans-serif;
-}
-
-.font-display {
-  font-family:
-    'Iowan Old Style',
-    'AppleMyungjo',
-    'NanumMyeongjo',
-    'Noto Serif KR',
-    Georgia,
-    serif;
-  word-break: keep-all;
-}
-
-.editorial-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--lacquer);
-}
-
-.editorial-kicker::before {
-  width: 1.65rem;
-  height: 1px;
-  content: '';
-  background: currentColor;
-}
-
-.paper-panel {
-  border: 1px solid var(--line);
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(255, 250, 242, 0.48)),
-    var(--paper-soft);
-  box-shadow: 0.45rem 0.45rem 0 rgba(78, 48, 31, 0.08);
-}
-
-.ink-panel {
-  color: #fffaf2;
-  border: 1px solid rgba(255, 250, 242, 0.14);
-  background:
-    radial-gradient(circle at 80% 0%, rgba(185, 43, 32, 0.24), transparent 24rem),
-    linear-gradient(135deg, #271c17, #17110e);
-  box-shadow: 0.55rem 0.55rem 0 rgba(125, 33, 27, 0.18);
-}
-
-.retro-card {
-  border: 1px solid var(--line);
-  background: rgba(255, 251, 245, 0.82);
-  box-shadow: 0.35rem 0.35rem 0 rgba(78, 48, 31, 0.08);
-}
-
-.retro-rule {
-  border-color: var(--line);
-}
-
-.stamp-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid currentColor;
-  border-radius: 999px;
-  padding: 0.3rem 0.65rem;
-  color: var(--lacquer);
-  font-size: 0.67rem;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  line-height: 1;
-  transform: rotate(-2deg);
-}
-
-.image-ink-frame {
-  border: 1px solid rgba(33, 25, 20, 0.32);
-  box-shadow: 0.45rem 0.45rem 0 rgba(33, 25, 20, 0.14);
+  font-family: 'Noto Sans KR', serif;
 }
 
 ::selection {
-  background: rgba(185, 43, 32, 0.23);
+  background: rgba(239, 68, 68, 0.22);
 }
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--lacquer);
+  outline: 2px solid #ef4444;
   outline-offset: 2px;
 }
 .perspective {
@@ -157,19 +56,4 @@ button:focus-visible {
 
 .rotate-y-180 {
   transform: rotateY(180deg);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-  }
 }

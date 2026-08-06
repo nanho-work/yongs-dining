@@ -1,15 +1,12 @@
-const isStaticExport = process.env.STATIC_EXPORT === '1';
+const isProd = process.env.NODE_ENV === 'production';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: isStaticExport ? 'export' : undefined,
+  output: 'export',
   trailingSlash: true,
-  assetPrefix: isStaticExport ? '/' : undefined,
+  assetPrefix: isProd ? '/' : '', // GitHub Pages + 도메인 대응
   images: {
-    unoptimized: isStaticExport,
-    formats: ['image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1440, 1920, 2048, 3840],
-    qualities: [70, 75, 80],
+    unoptimized: true, // next/image 최적화 비활성화 (static export용)
   },
 };
 

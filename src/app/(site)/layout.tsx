@@ -5,9 +5,5 @@ type SiteLayoutProps = {
 }
 
 export default function SiteLayout({ children }: SiteLayoutProps) {
-  return (
-    <div className="mx-auto w-full max-w-[90rem] overflow-x-clip px-4 sm:px-6 2xl:px-20">
-      {children}
-    </div>
-  )
+  return <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">{children}</div>
 }

@@ -1,11 +1,13 @@
 import FeaturedMenus from '@/components/sections/FeaturedMenus'
 import HomeHero from '@/components/sections/HomeHero'
+import BlogPreviewSlider from './BlogPreviewSlider'
 
 export default function Hero() {
   return (
-    <div className="mt-0 hero-font">
+    <section className="mt-0 hero-font">
       <HomeHero />
       <FeaturedMenus />
-    </div>
+      <BlogPreviewSlider />
+    </section>
   )
 }
