@@ -4,13 +4,21 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "용스다이닝포차 점심특선 | 목-일 12:00-15:00",
   description: "용스다이닝포차 점심특선 메뉴와 세트 구성을 확인해보세요.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
   alternates: {
-    canonical: "https://yongs-dining.com/lunch",
+    canonical: "https://yongs-dining.com/lunch/",
   },
   openGraph: {
     title: "용스다이닝포차 점심특선",
     description: "점심 한정 메뉴와 세트 구성을 만나보세요.",
-    url: "https://yongs-dining.com/lunch",
+    url: "https://yongs-dining.com/lunch/",
     siteName: "용스다이닝포차",
     images: [
       {

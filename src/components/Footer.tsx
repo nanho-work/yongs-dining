@@ -7,9 +7,9 @@ export default function Footer() {
         <div>
           <h3 className="font-semibold text-gray-900 mb-2">용스다이닝포차</h3>
           <p className="leading-relaxed">
-            모란역 도보 5분 거리
+            {STORE_INFO.neighborhood}
             <br />
-            한우전골과 교자가 맛있는 감성포차
+            두부요리에 반주 한 잔, 모란의 작은 감성포차
           </p>
         </div>
 

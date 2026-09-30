@@ -1,24 +1,25 @@
 import Menu from '@/components/Menu'; // 선택사항
 import type { Metadata } from 'next';
+import { CORE_SEARCH_KEYWORDS, SITE_URL } from '@/constants/seo';
 
 
 export const metadata: Metadata = {
-  title: '용스다이닝포차 메뉴 | 따뜻한 소울푸드',
-  description: '모두부, 황태탕, 알배기 등 용스다이닝포차만의 정성 가득한 메뉴를 확인해보세요.',
-  keywords: ['용스메뉴', '모두부', '황태탕', '분위기 좋은 맛집', '감성포차메뉴'],
+  title: '모란 두부요리 맛집 | 한우두부전골·폭탄 두부두루치기',
+  description: '모란역 용스다이닝의 한우두부전골, 300g 폭탄 두부두루치기, 수제두부완자와 다양한 한식 술안주 메뉴를 확인하세요.',
+  keywords: [...CORE_SEARCH_KEYWORDS, '한우두부전골', '폭탄 두부두루치기', '수제두부완자', '모란 술안주'],
   alternates: {
-    canonical: 'https://yongs-dining.com/menu',
+    canonical: `${SITE_URL}/menu/`,
   },
   openGraph: {
-    title: '용스다이닝포차 메뉴',
-    description: '감성과 맛이 살아있는 요리들. 용스다이닝포차의 메뉴를 소개합니다.',
-    url: 'https://yongs-dining.com/menu',
+    title: '모란 두부요리 맛집 | 용스다이닝 메뉴',
+    description: '한우두부전골과 폭탄 두부두루치기 등 용스다이닝의 대표 메뉴를 소개합니다.',
+    url: `${SITE_URL}/menu/`,
     siteName: '용스다이닝포차',
     images: [
       {
         url: '/social.png',
-        width: 1200,
-        height: 630,
+        width: 512,
+        height: 512,
         alt: '용스다이닝포차 인기 메뉴',
       },
     ],
