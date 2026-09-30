@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useState } from 'react'
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 
 type UseAutoCarouselOptions = {
   length: number
@@ -14,6 +15,7 @@ export function useAutoCarousel({
   paused = false,
 }: UseAutoCarouselOptions) {
   const [index, setIndex] = useState(0)
+  const prefersReducedMotion = usePrefersReducedMotion()
 
   const goTo = useCallback(
     (nextIndex: number) => {
@@ -37,14 +39,14 @@ export function useAutoCarousel({
   }, [length])
 
   useEffect(() => {
-    if (paused || length <= 1) return
+    if (paused || prefersReducedMotion || length <= 1) return
 
     const timer = window.setInterval(() => {
       setIndex((current) => (current + 1) % length)
     }, interval)
 
     return () => window.clearInterval(timer)
-  }, [interval, length, paused])
+  }, [interval, length, paused, prefersReducedMotion])
 
   return {
     index,

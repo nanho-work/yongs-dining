@@ -1,16 +1,18 @@
+import { STORE_INFO } from '@/constants/store'
+
 export const HOME_HERO_IMAGES = [
   {
-    src: '/main_doofu-리얼한우두부전골.png',
+    src: '/hero-real-hanwoo-tofu-jeongol.webp',
     alt: '용스다이닝포차 리얼 한우두부전골',
   },
   {
-    src: '/main_doofu-수제두부보쌈.jpeg',
+    src: '/hero-boiled-pork-tofu.webp',
     alt: '용스다이닝포차 수제 두부보쌈',
   },
 ] as const
 
 export const HOME_HERO_POINTS = [
-  '모란역 도보 5분',
+  STORE_INFO.neighborhood,
   '대표 메뉴 한우두부전골',
 ] as const
 

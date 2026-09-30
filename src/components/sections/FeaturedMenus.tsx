@@ -13,7 +13,12 @@ export default function FeaturedMenus() {
         <SectionHeader
           eyebrow="signature menu"
           title="처음 온다면 이 메뉴부터"
-          description="대표 두부전골과 직접 만든 두부요리 중심으로, 술과 식사가 모두 자연스럽게 이어지는 메뉴입니다."
+          description={
+            <>
+              <span className="block sm:inline">대표 두부전골과 직접 만든 두부요리 중심으로,</span>{' '}
+              <span className="block sm:inline">술과 식사가 모두 자연스럽게 이어지는 메뉴입니다.</span>
+            </>
+          }
         />
         <Link
           href="/menu"

@@ -17,7 +17,7 @@ const LUNCH_ITEMS: LunchItem[] = [
     title: "꽃게들깨순두부",
     price: 11000,
     description: "점심 한정",
-    image: "/lunch/lunch_ggodu.png",
+    image: "/lunch/lunch-ggodu.webp",
     fit: "contain",
     objectPosition: "center",
   },
@@ -26,7 +26,7 @@ const LUNCH_ITEMS: LunchItem[] = [
     title: "두부고추장찌개",
     price: 10000,
     description: "점심 한정",
-    image: "/lunch/lunch_du.png",
+    image: "/lunch/lunch-du.webp",
     fit: "contain",
     objectPosition: "center",
   },
@@ -35,7 +35,7 @@ const LUNCH_ITEMS: LunchItem[] = [
     title: "순두부마파덮밥",
     price: 11000,
     description: "점심 한정",
-    image: "/lunch/lunch_ma.png",
+    image: "/lunch/lunch-ma.webp",
     fit: "contain",
     objectPosition: "center",
   },
@@ -44,14 +44,14 @@ const LUNCH_ITEMS: LunchItem[] = [
     title: "용스두부김밥",
     price: 8000,
     description: "점심 한정",
-    image: "/lunch/lunch_kim.png",
+    image: "/lunch/lunch-kim.webp",
     fit: "contain",
     objectPosition: "center",
   },
 ];
 
-const SET_MENU_IMAGE = "/lunch/lunch_set_combo.png";
-const USAMGYEOP_IMAGE = "/lunch/lunch_usamgyeop_torch.png";
+const SET_MENU_IMAGE = "/lunch/lunch-set-combo.webp";
+const USAMGYEOP_IMAGE = "/lunch/lunch-usamgyeop-torch.webp";
 
 export default function Lunch() {
   return (
@@ -85,8 +85,7 @@ export default function Lunch() {
                     src={item.image}
                     alt={item.title}
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    quality={70}
+                    sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) 50vw, 25vw"
                     priority={index === 0}
                     style={{ objectPosition: item.objectPosition || "center" }}
                     className={(item.fit ?? "contain") === "contain" ? "object-contain" : "object-cover"}
@@ -133,8 +132,7 @@ export default function Lunch() {
                   src={SET_MENU_IMAGE}
                   alt="세트메뉴 구성"
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  quality={80}
+                  sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) 50vw, 25vw"
                   className="object-contain"
                 />
               </div>
@@ -165,8 +163,7 @@ export default function Lunch() {
                   src={USAMGYEOP_IMAGE}
                   alt="우삼겹 토치"
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  quality={80}
+                  sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) 50vw, 25vw"
                   className="object-contain"
                 />
               </div>

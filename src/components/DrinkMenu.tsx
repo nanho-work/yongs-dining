@@ -56,7 +56,7 @@ export default function DrinkMenu() {
                       )}
                     </div>
 
-                    <div className="p-3 sm:p-4 bg-black/30 text-white min-h-[112px]">
+                    <div className="min-h-[112px] bg-neutral-900/85 p-3 text-white sm:p-4">
                       <h3 className="text-sm sm:text-base font-bold">{drink.title}</h3>
                       {drink.description && <p className="text-xs sm:text-sm mt-1 leading-relaxed">{drink.description}</p>}
                       <p className="text-sm font-semibold mt-1.5">{drink.price}</p>

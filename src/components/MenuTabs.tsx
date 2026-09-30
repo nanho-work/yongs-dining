@@ -30,7 +30,8 @@ export default function MenuTabs({ selected, onSelect }: Props) {
   useEffect(() => {
     const selectedTab = tabRefs.current[selectedIndex]
     if (selectedTab) {
-      selectedTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      selectedTab.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' })
     }
   }, [selectedIndex])
 
@@ -45,9 +46,9 @@ export default function MenuTabs({ selected, onSelect }: Props) {
   }
 
   return (
-    <div className="relative border-b border-black/80 w-full overflow-x-auto overflow-y-hidden sm:overflow-x-visible">
+    <div className="relative w-full overflow-x-auto overflow-y-hidden border-b border-black/80 lg:overflow-x-visible">
       <div
-        className="flex justify-start sm:justify-center whitespace-nowrap px-2 sm:px-0"
+        className="flex min-w-max justify-start whitespace-nowrap px-2 lg:min-w-0 lg:justify-center lg:px-0"
         role="tablist"
         aria-label="메뉴 카테고리"
       >
@@ -85,7 +86,7 @@ export default function MenuTabs({ selected, onSelect }: Props) {
                   focusAndSelect(tabs.length - 1)
                 }
               }}
-              className={`mx-1 sm:mx-2 px-4 sm:px-5 py-3 text-sm sm:text-[15px] font-bold border border-black border-b-0 -mb-px rounded-t-md transition-all duration-300 ease-in-out ${
+              className={`mx-1 px-4 py-3 text-sm font-bold border border-black border-b-0 -mb-px rounded-t-md transition-all duration-300 ease-in-out sm:px-5 sm:text-[15px] lg:mx-2 ${
                 isSelected
                   ? 'bg-yellow-100 text-black'
                   : 'bg-transparent text-black/70 hover:text-black hover:bg-yellow-50/70'

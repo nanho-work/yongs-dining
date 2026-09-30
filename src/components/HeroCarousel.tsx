@@ -5,10 +5,10 @@ import Link from 'next/link'
 import { useAutoCarousel } from '@/hooks/useAutoCarousel'
 
 const images = [
-  '/main_doofu-리얼한우두부전골.png',
-  '/side-manhattan-canape.png',
-  '/main_doofu-수제두부보쌈.jpeg',
-  '/side-hotteok-icecream.png',
+  '/hero-real-hanwoo-tofu-jeongol.webp',
+  '/menu-manhattan-canape.webp',
+  '/hero-boiled-pork-tofu.webp',
+  '/menu-hotteok-icecream.webp',
 ]
 
 export default function HeroCarousel() {

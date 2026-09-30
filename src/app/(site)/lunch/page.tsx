@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     siteName: "용스다이닝포차",
     images: [
       {
-        url: "/lunch/lunch_set_combo.png",
+        url: "/lunch/lunch-set-combo.webp",
         width: 1200,
         height: 630,
         alt: "용스다이닝포차 점심특선 메뉴",

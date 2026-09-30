@@ -72,7 +72,7 @@ export default function RootLayout({
           본문으로 건너뛰기
         </a>
         <Header />
-        <main id="content" className="flex-grow pt-2 sm:pt-3">{children}</main>
+        <main id="content" tabIndex={-1} className="flex-grow pt-2 sm:pt-3">{children}</main>
         <FloatingButton />
         <Footer />
       </body>

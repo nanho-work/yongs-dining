@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import DrinkMenu from './DrinkMenu'
 import MenuTabs, { type MenuTabId } from './MenuTabs'
 import { MENU_ITEMS } from '@/data/menuData'
@@ -10,6 +10,8 @@ import { getPrimaryMenuImage, isMenuImagePlaceholder } from '@/lib/menu'
 export default function Menu() {
   const [selectedCategory, setSelectedCategory] = useState<MenuTabId>('all')
   const [flippedId, setFlippedId] = useState<string | null>(null)
+  const detailButtonRefs = useRef<Record<string, HTMLButtonElement | null>>({})
+  const closeButtonRefs = useRef<Record<string, HTMLButtonElement | null>>({})
 
   useEffect(() => {
     setFlippedId(null)
@@ -23,8 +25,19 @@ export default function Menu() {
     [selectedCategory]
   )
 
+  const openDetails = (id: string) => {
+    setFlippedId(id)
+    window.requestAnimationFrame(() => closeButtonRefs.current[id]?.focus())
+  }
+
+  const closeDetails = (id: string) => {
+    setFlippedId(null)
+    window.requestAnimationFrame(() => detailButtonRefs.current[id]?.focus())
+  }
+
   return (
-    <section className="py-2">
+    <section className="py-2" aria-labelledby="menu-page-title">
+      <h1 id="menu-page-title" className="sr-only">메뉴</h1>
       <MenuTabs selected={selectedCategory} onSelect={setSelectedCategory} />
 
       {selectedCategory === 'drink' ? (
@@ -36,7 +49,8 @@ export default function Menu() {
           id="menu-panel"
           role="tabpanel"
           aria-labelledby={`tab-${selectedCategory}`}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8"
+          tabIndex={0}
+          className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2"
         >
           {filteredMenus.map((menu, index) => {
             const image = getPrimaryMenuImage(menu.images)
@@ -46,7 +60,7 @@ export default function Menu() {
             return (
               <article
                 key={menu.id}
-                className="relative w-full aspect-[16/9] group overflow-hidden rounded-2xl border border-white/60 shadow-sm bg-neutral-900/10"
+                className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/60 bg-neutral-900/10 shadow-sm lg:aspect-[16/9]"
               >
                 {menu.badge && (
                   <span className="absolute z-30 top-3 right-3 bg-red-600 text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-sm pointer-events-none">
@@ -54,19 +68,18 @@ export default function Menu() {
                   </span>
                 )}
 
-                <div className="sm:hidden relative h-full [perspective:1000px]">
+                <div className="relative h-full [perspective:1000px] lg:hidden">
                   <div
                     className={`relative w-full h-full duration-500 [transform-style:preserve-3d] ${
                       isFlipped ? '[transform:rotateY(180deg)]' : ''
                     }`}
                   >
-                    <div className="absolute inset-0 backface-hidden">
+                    <div className="absolute inset-0 backface-hidden" aria-hidden={isFlipped}>
                       <Image
                         src={`/${image}`}
                         alt={menu.title}
                         fill
                         sizes="100vw"
-                        quality={75}
                         priority={index === 0}
                         className={isPlaceholder ? 'object-contain bg-neutral-100 p-6' : 'object-cover'}
                       />
@@ -81,7 +94,13 @@ export default function Menu() {
                         <p className="text-xs mt-1">{menu.price}</p>
                         <button
                           type="button"
-                          onClick={() => setFlippedId(menu.id)}
+                          ref={(element) => {
+                            detailButtonRefs.current[menu.id] = element
+                          }}
+                          aria-expanded={isFlipped}
+                          aria-controls={`menu-detail-${menu.id}`}
+                          tabIndex={isFlipped ? -1 : 0}
+                          onClick={() => openDetails(menu.id)}
                           className="mt-2 w-full rounded-md border border-white/30 bg-white/10 px-2 py-1.5 text-xs font-medium"
                         >
                           상세 설명 보기
@@ -89,7 +108,11 @@ export default function Menu() {
                       </div>
                     </div>
 
-                    <div className="absolute inset-0 backface-hidden rotate-y-180 flex flex-col bg-neutral-900/90 text-white p-4">
+                    <div
+                      id={`menu-detail-${menu.id}`}
+                      aria-hidden={!isFlipped}
+                      className="absolute inset-0 backface-hidden rotate-y-180 flex flex-col overflow-y-auto bg-neutral-900/90 p-4 text-white"
+                    >
                       <h3 className="text-base font-bold">{menu.title}</h3>
                       <p className="text-sm mt-2 whitespace-pre-line leading-relaxed">{menu.description}</p>
                       {menu.limited && (
@@ -97,8 +120,12 @@ export default function Menu() {
                       )}
                       <p className="mt-auto pt-3 text-sm font-semibold">{menu.price}</p>
                       <button
-                        type="button"
-                        onClick={() => setFlippedId(null)}
+                          type="button"
+                          ref={(element) => {
+                            closeButtonRefs.current[menu.id] = element
+                          }}
+                          tabIndex={isFlipped ? 0 : -1}
+                          onClick={() => closeDetails(menu.id)}
                         className="mt-2 rounded-md border border-white/30 bg-white/10 px-2 py-1.5 text-xs font-medium"
                       >
                         닫기
@@ -107,13 +134,12 @@ export default function Menu() {
                   </div>
                 </div>
 
-                <div className="hidden sm:block h-full">
+                <div className="relative hidden h-full lg:block">
                   <Image
                     src={`/${image}`}
                     alt={menu.title}
                     fill
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                    quality={75}
+                    sizes="(max-width: 1023px) 100vw, 50vw"
                     priority={index === 0}
                     className={isPlaceholder ? 'object-contain bg-neutral-100 p-8' : 'object-cover'}
                   />

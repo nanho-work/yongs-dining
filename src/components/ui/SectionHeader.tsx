@@ -1,14 +1,17 @@
+import type { ReactNode } from 'react'
 import { cn } from '@/lib/cn'
 
 type SectionHeaderProps = {
+  id?: string
   eyebrow?: string
   title: string
-  description?: string
+  description?: ReactNode
   align?: 'left' | 'center'
   className?: string
 }
 
 export function SectionHeader({
+  id,
   eyebrow,
   title,
   description,
@@ -22,11 +25,11 @@ export function SectionHeader({
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="mt-2 text-2xl font-bold tracking-tight text-neutral-950 sm:text-3xl">
+      <h2 id={id} className="mt-2 break-keep text-2xl font-bold tracking-tight text-neutral-950 sm:text-3xl">
         {title}
       </h2>
       {description ? (
-        <p className="mt-3 text-sm leading-6 text-neutral-600 sm:text-base">
+        <p className="mt-3 break-keep text-sm leading-6 text-neutral-600 sm:text-base">
           {description}
         </p>
       ) : null}

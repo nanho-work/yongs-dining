@@ -25,7 +25,7 @@ export default function HomeHero() {
           src={image.src}
           alt={image.alt}
           fill
-          loading={imageIndex === 0 ? 'eager' : 'lazy'}
+          priority={imageIndex === 0}
           sizes="100vw"
           className={cn(
             'object-cover object-center transition-opacity duration-1000',
@@ -51,8 +51,9 @@ export default function HomeHero() {
             {STORE_INFO.name}
           </h1>
 
-          <p className="mt-5 max-w-2xl text-lg font-semibold leading-8 text-white sm:text-2xl sm:leading-10">
-            {STORE_INFO.tagline}, 모란의 감성포차.
+          <p className="mt-5 max-w-3xl break-keep text-[28px] font-semibold leading-[1.35] text-white sm:text-[40px] sm:leading-[1.3]">
+            <span className="block">{STORE_INFO.tagline},</span>
+            <span className="block">모란의 작은 감성포차</span>
           </p>
 
           <div className="mt-6 flex flex-wrap gap-2 text-sm font-semibold text-white/90">
@@ -104,11 +105,16 @@ export default function HomeHero() {
               aria-label={`${imageIndex + 1}번째 대표 이미지 보기`}
               aria-current={imageIndex === index}
               onClick={() => goTo(imageIndex)}
-              className={cn(
-                'h-2.5 rounded-full transition-all',
-                imageIndex === index ? 'w-9 bg-red-500' : 'w-2.5 bg-white/70 hover:bg-white'
-              )}
-            />
+              className="group inline-flex h-6 min-w-6 items-center justify-center rounded-full"
+            >
+              <span
+                aria-hidden
+                className={cn(
+                  'h-2.5 rounded-full transition-all',
+                  imageIndex === index ? 'w-9 bg-red-500' : 'w-2.5 bg-white/70 group-hover:bg-white'
+                )}
+              />
+            </button>
           ))}
         </div>
       </div>
