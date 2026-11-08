@@ -1,5 +1,5 @@
 User-Agent: *
 Allow: /
 
-Host: https://yongs-dining.com
-Sitemap: https://yongs-dining.com/sitemap.xml
+Host: https://www.yongs-dining.com
+Sitemap: https://www.yongs-dining.com/sitemap.xml
