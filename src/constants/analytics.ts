@@ -1,0 +1,2 @@
+export const GOOGLE_ANALYTICS_ID = 'G-1XVZNHZ8DM'
+export const NAVER_ANALYTICS_ID = '1e116e7928c35e0'

@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://yongs-dining.com'
+export const SITE_URL = 'https://www.yongs-dining.com'
 
 export const CORE_SEARCH_KEYWORDS = [
   '용스다이닝',

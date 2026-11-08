@@ -7,6 +7,7 @@ import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import FloatingButton from '@/components/FloatingButton'
 import Footer from '@/components/Footer'
+import SiteAnalytics from '@/components/analytics/SiteAnalytics'
 import { CORE_SEARCH_KEYWORDS, SITE_URL } from '@/constants/seo'
 
 export const metadata: Metadata = {
@@ -59,7 +60,7 @@ export const metadata: Metadata = {
   },
 
   // 작성자 정보 (선택)
-  authors: [{ name: 'YongsDining', url: 'https://yongs-dining.com' }],
+  authors: [{ name: 'YongsDining', url: SITE_URL }],
   creator: 'YongsDining',
   publisher: 'YongsDining',
 }
@@ -82,6 +83,7 @@ export default function RootLayout({
         <main id="content" tabIndex={-1} className="flex-grow pt-2 sm:pt-3">{children}</main>
         <FloatingButton />
         <Footer />
+        <SiteAnalytics />
       </body>
     </html>
   )
