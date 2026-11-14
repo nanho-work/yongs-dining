@@ -1,12 +1,12 @@
 import Location from '@/components/Location';
 import type { Metadata } from 'next';
 import RestaurantStructuredData from '@/components/seo/RestaurantStructuredData';
-import { CORE_SEARCH_KEYWORDS, SITE_URL } from '@/constants/seo';
+import { CORE_SEARCH_KEYWORDS, SITE_URL, VISIT_SEARCH_KEYWORDS } from '@/constants/seo';
 
 export const metadata: Metadata = {
   title: '모란역 술집 용스다이닝 | 영업시간·주차·예약',
   description: '성남 모란역 도보 5~10분 용스다이닝의 위치, 저녁 영업시간, 주차, 혼술 좌석, 단체 대관과 예약 정보를 확인하세요.',
-  keywords: [...CORE_SEARCH_KEYWORDS, '모란역 술집 영업시간', '모란 술집 주차', '모란 단체 대관', '모란 청첩장 모임'],
+  keywords: [...CORE_SEARCH_KEYWORDS, ...VISIT_SEARCH_KEYWORDS],
   alternates: {
     canonical: `${SITE_URL}/location/`,
   },

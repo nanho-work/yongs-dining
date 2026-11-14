@@ -1,12 +1,14 @@
 import Menu from '@/components/Menu'; // 선택사항
 import type { Metadata } from 'next';
 import { CORE_SEARCH_KEYWORDS, SITE_URL } from '@/constants/seo';
+import { MENU_SEARCH_KEYWORDS } from '@/constants/seo';
+import MenuChoiceGuide from '@/components/sections/MenuChoiceGuide';
 
 
 export const metadata: Metadata = {
   title: '모란 두부요리 맛집 | 한우두부전골·폭탄 두부두루치기',
   description: '모란역 용스다이닝의 한우두부전골, 300g 폭탄 두부두루치기, 수제두부완자와 다양한 한식 술안주 메뉴를 확인하세요.',
-  keywords: [...CORE_SEARCH_KEYWORDS, '한우두부전골', '폭탄 두부두루치기', '수제두부완자', '모란 술안주'],
+  keywords: [...CORE_SEARCH_KEYWORDS, ...MENU_SEARCH_KEYWORDS, '모란 술안주'],
   alternates: {
     canonical: `${SITE_URL}/menu/`,
   },
@@ -31,6 +33,7 @@ export const metadata: Metadata = {
 export default function MenuPage() {
   return (
     <section className="pt-6 sm:pt-8 pb-14 sm:pb-16">
+      <MenuChoiceGuide />
       <Menu />
     </section>
   );

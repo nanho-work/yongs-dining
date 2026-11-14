@@ -1,11 +1,13 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import DrinkMenu from './DrinkMenu'
 import MenuTabs, { type MenuTabId } from './MenuTabs'
 import { MENU_ITEMS } from '@/data/menuData'
 import { getPrimaryMenuImage, isMenuImagePlaceholder } from '@/lib/menu'
+import { getMenuSeoDetailByMenuId } from '@/data/menuSeoData'
 
 export default function Menu() {
   const [selectedCategory, setSelectedCategory] = useState<MenuTabId>('all')
@@ -36,8 +38,8 @@ export default function Menu() {
   }
 
   return (
-    <section className="py-2" aria-labelledby="menu-page-title">
-      <h1 id="menu-page-title" className="sr-only">메뉴</h1>
+    <section className="py-2" aria-labelledby="all-menu-title">
+      <h2 id="all-menu-title" className="sr-only">용스다이닝 전체 메뉴</h2>
       <MenuTabs selected={selectedCategory} onSelect={setSelectedCategory} />
 
       {selectedCategory === 'drink' ? (
@@ -56,6 +58,7 @@ export default function Menu() {
             const image = getPrimaryMenuImage(menu.images)
             const isFlipped = flippedId === menu.id
             const isPlaceholder = isMenuImagePlaceholder(image)
+            const seoDetail = getMenuSeoDetailByMenuId(menu.id)
 
             return (
               <article
@@ -119,6 +122,15 @@ export default function Menu() {
                         <p className="text-xs text-red-200 mt-3">※ 예약 및 한정판매 메뉴입니다</p>
                       )}
                       <p className="mt-auto pt-3 text-sm font-semibold">{menu.price}</p>
+                      {seoDetail ? (
+                        <Link
+                          href={`/menu/${seoDetail.slug}/`}
+                          tabIndex={isFlipped ? 0 : -1}
+                          className="mt-2 rounded-md bg-red-600 px-3 py-2 text-center text-xs font-bold text-white"
+                        >
+                          메뉴 상세 페이지
+                        </Link>
+                      ) : null}
                       <button
                           type="button"
                           ref={(element) => {
@@ -157,7 +169,17 @@ export default function Menu() {
                     {menu.limited && (
                       <p className="text-xs text-red-200 mt-2">※ 예약 및 한정판매 메뉴입니다</p>
                     )}
-                    <p className="text-base font-semibold mt-auto pt-3">{menu.price}</p>
+                    <div className="mt-auto pt-3">
+                      <p className="text-base font-semibold">{menu.price}</p>
+                      {seoDetail ? (
+                        <Link
+                          href={`/menu/${seoDetail.slug}/`}
+                          className="mt-2 inline-flex text-xs font-bold text-red-200 underline underline-offset-4 hover:text-white"
+                        >
+                          메뉴 상세 보기 →
+                        </Link>
+                      ) : null}
+                    </div>
                   </div>
                 </div>
               </article>

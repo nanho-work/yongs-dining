@@ -1,5 +1,5 @@
 import { SEASONAL_NOTICE } from '@/constants/seasonal'
-import { SITE_URL } from '@/constants/seo'
+import { CORE_SEARCH_KEYWORDS, MENU_SEARCH_KEYWORDS, SITE_URL } from '@/constants/seo'
 import { STORE_INFO, STORE_LINKS } from '@/constants/store'
 
 const standardOpeningHours = [
@@ -48,6 +48,7 @@ const restaurantStructuredData = {
   telephone: `+82-${STORE_INFO.phoneHref.slice(1, 3)}-${STORE_INFO.phoneHref.slice(3, 7)}-${STORE_INFO.phoneHref.slice(7)}`,
   priceRange: '₩₩',
   servesCuisine: ['한식', '두부요리', '전골', '두루치기', '한식 안주'],
+  keywords: [...CORE_SEARCH_KEYWORDS, ...MENU_SEARCH_KEYWORDS].join(', '),
   menu: `${SITE_URL}/menu/`,
   acceptsReservations: STORE_LINKS.reservation,
   hasMap: STORE_LINKS.map,
