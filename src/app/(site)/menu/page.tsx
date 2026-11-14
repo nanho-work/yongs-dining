@@ -1,8 +1,6 @@
 import Menu from '@/components/Menu'; // 선택사항
 import type { Metadata } from 'next';
-import { CORE_SEARCH_KEYWORDS, SITE_URL } from '@/constants/seo';
-import { MENU_SEARCH_KEYWORDS } from '@/constants/seo';
-import MenuChoiceGuide from '@/components/sections/MenuChoiceGuide';
+import { CORE_SEARCH_KEYWORDS, MENU_SEARCH_KEYWORDS, SITE_URL } from '@/constants/seo';
 
 
 export const metadata: Metadata = {
@@ -33,7 +31,6 @@ export const metadata: Metadata = {
 export default function MenuPage() {
   return (
     <section className="pt-6 sm:pt-8 pb-14 sm:pb-16">
-      <MenuChoiceGuide />
       <Menu />
     </section>
   );
